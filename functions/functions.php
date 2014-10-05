@@ -13,8 +13,14 @@
         return $json;
     }
     
-    function deleteTest ($version) {
+    function deleteImageTest ($version) {
         $tests = decodeJSON ($rootdir."test/tests.json");
+        unset($tests[$version]);
+        encodeJSON($rootdir."test/tests.json", $tests);
+    }
+    
+    function deleteSoundTest ($version) {
+        $tests = decodeJSON ($rootdir."test/sound_tests.json");
         unset($tests[$version]);
         encodeJSON($rootdir."test/tests.json", $tests);
     }

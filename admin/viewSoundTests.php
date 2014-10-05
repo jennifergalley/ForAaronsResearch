@@ -12,7 +12,7 @@
     <?php }
  
     if (!empty($_GET['del'])) {
-        deleteImageTest ($_GET['del']);
+        deleteSoundTest ($_GET['del']);
     } 
 ?>
 
@@ -21,7 +21,7 @@
 
 <h1>Test Blocks</h1>
 
-<?php $tests = decodeJSON($rootdir."test/tests.json"); 
+<?php $tests = decodeJSON($rootdir."test/sound_tests.json"); 
     if (empty($tests)) {
         echo "<h2>There are currently no test versions available.</h2>";
     } else {
@@ -46,15 +46,15 @@
         <tr>
             <th>Trial</th>
             <th>First Image</th>
-            <th>Second Image</th>
+            <th>Tone Delay</th>
             <th>Right Answer</th>
         </tr>
     <?php foreach ($t["Questions"] as $num => $question) : ?>
             <tr>
                 <td><?php echo $num; ?></td>
-                <td><?php echo $question["first"]; ?></td>
-                <td><?php echo $question["second"]; ?></td>
-                <td><?php echo $t["Right Answers"][$num] == "yes" ? "True" : "False"; ?></td>
+                <td><?php echo $question["image"]; ?></td>
+                <td><?php echo $question["tone"]; ?></td>
+                <td><?php echo ucwords($t["Right Answers"][$num]); ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

@@ -17,7 +17,7 @@
 
 <h1>Participant Results</h1>
 
-<?php $results = decodeJSON($rootdir."results/responses.json"); ?>
+<?php $results = decodeJSON($rootdir."results/sound_responses.json"); ?>
     <?php foreach ($results as $r) : ?>
     <table class='view'>
         <tr>
@@ -42,6 +42,7 @@
             <th>Trial</th>
             <th>Response</th>
             <th>Correct?</th>
+            <th>Response Time</th>
         </tr>
     <?php 
         $i = 1;
@@ -50,6 +51,7 @@
                 <td><?php echo $i++; ?></td>
                 <td><?php echo $question["answer"]; ?></td>
                 <td><?php echo $question["correct"]; ?></td>
+                <td><?php echo $question["response time"]; ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

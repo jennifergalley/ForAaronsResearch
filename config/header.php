@@ -40,11 +40,10 @@
                     <!-- Nav content -->
                     <div class='collapse navbar-collapse' id='collapse'>
                         <ul class='nav navbar-nav'>
-                            <li><a class="nav" href="<?php echo $subdir; ?>index.php">Home</a></li>
-                            <li><a class="nav" href="<?php echo $subdir; ?>test/test.php">Take Test</a></li>
-                            <li><a class="nav" href="<?php echo $subdir; ?>admin/viewResults.php">View Results</a></li>
-                            <li><a class="nav" href="<?php echo $subdir; ?>admin/viewTests.php">View Tests</a></li>
-                            <li><a class="nav" href="<?php echo $subdir; ?>admin/createTest.php">Generate Test</a></li>
+                            <!-- <li><a class="nav" href="<?php echo $subdir; ?>index.php">Home</a></li> -->
+                            <li><a class="nav" href="<?php echo $subdir; ?>test/test.php">Take Image Test</a></li>
+                            <li><a class="nav" href="<?php echo $subdir; ?>test/soundTest.php">Take Sound Test</a></li>
+                            <li><a class="nav" href="<?php echo $subdir; ?>admin/admin.php">Admin</a></li>
                         </ul>
                     </div>
                 </nav>

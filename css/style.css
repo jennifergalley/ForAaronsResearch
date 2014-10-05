@@ -49,21 +49,29 @@ fieldset {
     padding: 10px;
 }
 
-a.nav {
+a {
     color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
     font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+a.nav {
+    font-weight: bold;
     text-align: left;
 }
 
-a.nav:hover {
+a:hover {
     color: gray;
+    text-decoration: none;
 }
 
 a.back {
     float:left;
+}
+
+a.logout {
+    float: right;
 }
 
 label {
@@ -96,15 +104,5 @@ td, th {
 
 table.view tr:nth-child(odd) {
     background-color: #D0D0D0;
-}
-
-a#delete {
-    color: black;
-    text-decoration: none;
-}
-a#delete:hover {
-    color: #0066FF;
-    text-decoration: none;
-    cursor: pointer;
 }
 

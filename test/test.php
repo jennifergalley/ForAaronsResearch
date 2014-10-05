@@ -21,7 +21,7 @@
     } else {
 ?>
     <!-- Name Submit and Start Test -->
-    <h1>Take Test</h1>
+    <h1>Take Image Test</h1>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table class='form'>
             <tr>
@@ -90,7 +90,7 @@
 </script>
 
 <!-- Javascript Functions -->
-<script type="text/javascript" src="<?php echo $subdir.'functions/jsFunctions.js';?>"></script>
+<script type="text/javascript" src="<?php echo $subdir.'js/image_test.js';?>"></script>
 
 <?php 
     endif; 

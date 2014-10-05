@@ -1,4 +1,4 @@
-<?php 
+<?php
     require_once "/../config/global.php"; 
     require_once $rootdir."functions/functions.php";
     require_once $header;
@@ -8,27 +8,13 @@
         //Form Validation
         if ($_POST["user"] == "aaron" and $_POST["pswd"] == "password") {
             $_SESSION['loggedIn'] = true;
-            switch ($_POST['redirect']) { 
-                case 'ct': ?>
-                <script type='text/javascript'>
-                    redirect ("createTest.php");
-                </script>
-            <?php
-                    break;
-                case 'vr': ?>
-                <script type='text/javascript'>
-                    redirect ("viewResults.php");
-                </script>
-            <?php 
-                    break;
-                case 'vt'; ?>
-                <script type='text/javascript'>
-                    redirect ("viewTests.php");
-                </script>
-            <?php }
         } else {
             $error = "Error - username or password incorrect.";
         }
+    }
+
+    if (isset($_GET['logout'])) {
+        $_SESSION['loggedIn'] = NULL;
     }
 
     if (empty($_SESSION['loggedIn'])): ?>
@@ -56,7 +42,27 @@
         <input type="submit" name="login" value="Login">
     </form>
 
+<?php else: ?>    
+    <div class='jumobtron'>
+        <h1>Admin</h1>
+    </div>
+    
+    <a class="logout" href="admin.php?logout" target="_self">Logout</a>
+    <br>
+    
+    <h2>Image Test</h2>
+    <a class="nav" href="<?php echo $subdir; ?>admin/viewResults.php">View Results</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/viewTests.php">View Tests</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/createTest.php">Generate Test</a>
+    
+    <hr>
+    
+    <h2>Sound Test</h2>
+    <a class="nav" href="<?php echo $subdir; ?>admin/viewSoundResults.php">View Results</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/viewSoundTests.php">View Tests</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/createSoundTest.php">Generate Test</a>
+    
 <?php 
-    endif; 
+    endif;
     require_once $footer;
 ?>
