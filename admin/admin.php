@@ -1,6 +1,5 @@
 <?php
-    require_once "/../config/global.php"; 
-    require_once $rootdir."functions/functions.php";
+    require_once "/../config/global.php";
     require_once $header;
     $error = "";
     
@@ -51,9 +50,9 @@
     <br>
     
     <h2>Image Test</h2>
-    <a class="nav" href="<?php echo $subdir; ?>admin/viewResults.php">View Results</a>
-    <a class="nav" href="<?php echo $subdir; ?>admin/viewTests.php">View Tests</a>
-    <a class="nav" href="<?php echo $subdir; ?>admin/createTest.php">Generate Test</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/viewImageResults.php">View Results</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/viewImageTests.php">View Tests</a>
+    <a class="nav" href="<?php echo $subdir; ?>admin/createImageTest.php">Generate Test</a>
     
     <hr>
     

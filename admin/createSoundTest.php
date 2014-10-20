@@ -1,18 +1,12 @@
 <?php 
     require_once "/../config/global.php"; 
-    require_once $rootdir."functions/functions.php";
     require_once $header;
-    date_default_timezone_set("America/Los_Angeles");
 
     $tests = decodeJSON ($rootdir."test/sound_tests.json");
     $count = count ($tests); //get number of test versions already
     $error = "";
     
-    if (empty($_SESSION['loggedIn'])) { ?>
-        <script>
-           redirect ("admin.php"); 
-        </script>
-    <?php }
+    redirectToLogin();
     
     if (!empty($_POST['questions'])) {
         $_SESSION['questions'] = $_POST['questions'];
@@ -43,19 +37,15 @@
         $error = "Test Created!";
         $count++; 
     }
+    
+    backNavigation ();
 ?>
-<!-- Back Navigation -->
-<a href="admin.php" target="_self" class="back">Admin &lt;&lt;</a>
 
 <h1>Generate Sound Test</h1>
 
-<?php if (empty($_POST['questions']) or !empty($error)): ?>
-    <!-- If Error -->
-    <?php if (!empty($error)) : ?>
-        <h3><?php echo $error; ?></h3>
-    <?php endif; ?>
-    
-    <!-- Generate Test Form -->
+<?php if (empty($_POST['questions']) or !empty($error)): 
+    displayError(); ?>
+    <!-- Test Block & Number Trials -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table class='form'>
             <tr>
@@ -72,7 +62,7 @@
 <?php else: ?>
     <!-- Generate Test Form -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
-        <?php for ($i=0; $i<$_SESSION['questions']; $i++) : ?>
+        <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
         <h2>Trial <?php echo $i+1; ?></h2>
         <table class='form'>
             <tr>
@@ -97,9 +87,8 @@
         <?php endfor; ?>
         <input type="submit" name="submit" value="Submit">
     </form>
-    
-    
-<?php endif; 
+<?php 
+    endif; 
     require_once $footer;
 ?>
 

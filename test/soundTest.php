@@ -1,10 +1,9 @@
 <?php 
-    require_once "/../config/global.php"; 
-    require_once $rootdir."functions/functions.php";
+    require_once "/../config/global.php";
     
     if (empty($_POST["version"])) {
         require_once $header;
-        $_SESSION['loggedIn'] = NULL;
+        logout ();
     } else { ?>
         <!-- My Stylesheet -->
         <link rel="stylesheet" type="text/css" href="<?php echo $subdir.'css/style.css';?>">
@@ -14,10 +13,9 @@
     <div id="start">
 <?php 
     $test = decodeJSON ("sound_tests.json");    
-    if (empty($test)) {
+    if (empty($test)) :
         echo "<h2>Error - no tests available.</h2>";
-    } else {
-?>
+    else : ?>
     <!-- Name Submit and Start Test -->
     <h1>Take Sound Test</h1>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -34,14 +32,12 @@
         <br>
         <input type="submit" name="start" value="Start">
     </form>
-</div>
-<?php }
-    elseif (isset($_GET['done'])) : ?>
-    <!-- After Test Finished -->
-    <h1>Your results have been recorded. <br>Thanks for participating!</h1>
-<?php
-    endif;
-?>
+    </div>
+<?php endif;
+
+    elseif (isset($_GET['done'])) : 
+        thankYou ();
+    endif; ?>
 
 <!-- Populate Test -->
 <?php if (!empty($_POST["version"])) : 
@@ -53,6 +49,7 @@
 <audio id='tone' src="tone.wav" preload="auto"></audio>
 
 <!-- Test -->
+
 <?php 
     //Populate Questions
     $i = 1;
@@ -80,6 +77,7 @@
 </script>
 
 <!-- Javascript Functions -->
+<script type="text/javascript" src="<?php echo $subdir.'js/functions.js';?>"></script>
 <script type="text/javascript" src="<?php echo $subdir.'js/sound_test.js';?>"></script>
 
 <?php 

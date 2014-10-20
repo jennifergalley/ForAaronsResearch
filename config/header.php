@@ -1,5 +1,7 @@
 <?php 
-    session_start ();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     require_once "/../config/global.php"; 
 ?>
 
@@ -41,7 +43,7 @@
                     <div class='collapse navbar-collapse' id='collapse'>
                         <ul class='nav navbar-nav'>
                             <!-- <li><a class="nav" href="<?php echo $subdir; ?>index.php">Home</a></li> -->
-                            <li><a class="nav" href="<?php echo $subdir; ?>test/test.php">Take Image Test</a></li>
+                            <li><a class="nav" href="<?php echo $subdir; ?>test/imageTest.php">Take Image Test</a></li>
                             <li><a class="nav" href="<?php echo $subdir; ?>test/soundTest.php">Take Sound Test</a></li>
                             <li><a class="nav" href="<?php echo $subdir; ?>admin/admin.php">Admin</a></li>
                         </ul>

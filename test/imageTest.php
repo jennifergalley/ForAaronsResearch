@@ -1,25 +1,21 @@
 <?php 
-    require_once "/../config/global.php"; 
-    require_once $rootdir."functions/functions.php";
+    require_once "/../config/global.php";
     
     if (empty($_POST["version"])) {
         require_once $header;
-        $_SESSION['loggedIn'] = NULL;
+        logout ();
     } else { ?>
         <!-- My Stylesheet -->
         <link rel="stylesheet" type="text/css" href="<?php echo $subdir.'css/style.css';?>">
     <?php }
 
     if (empty($_POST["name"]) and empty($_GET)) : ?>
-    <!-- Are you ready? -->
     <div id="start">
-    
 <?php 
-    $test = decodeJSON ("tests.json");    
-    if (empty($test)) {
+    $test = decodeJSON ("image_tests.json");    
+    if (empty($test)) :
         echo "<h2>Error - no tests available.</h2>";
-    } else {
-?>
+    else : ?>
     <!-- Name Submit and Start Test -->
     <h1>Take Image Test</h1>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -36,19 +32,16 @@
         <br>
         <input type="submit" name="start" value="Start">
     </form>
-</div>
-<?php }
-    elseif (isset($_GET['done'])) : ?>
-    <!-- After Test Finished -->
-    <h1>Your results have been recorded. <br>Thanks for participating!</h1>
+    </div>
+<?php endif; 
 
-<?php
-    endif;
-?>
+    elseif (isset($_GET['done'])) : 
+        thankYou ();
+    endif; ?>
 
 <!-- Populate Test -->
 <?php if (!empty($_POST["version"])) : 
-    $test = decodeJSON ("tests.json");  
+    $test = decodeJSON ("image_tests.json");  
     $test = $test[$_POST['version']];
 ?>
 
@@ -90,6 +83,7 @@
 </script>
 
 <!-- Javascript Functions -->
+<script type="text/javascript" src="<?php echo $subdir.'js/functions.js';?>"></script>
 <script type="text/javascript" src="<?php echo $subdir.'js/image_test.js';?>"></script>
 
 <?php 

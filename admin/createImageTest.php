@@ -1,18 +1,12 @@
 <?php 
     require_once "/../config/global.php"; 
-    require_once $rootdir."functions/functions.php";
     require_once $header;
-    date_default_timezone_set("America/Los_Angeles");
 
-    $tests = decodeJSON ($rootdir."test/tests.json");
+    $tests = decodeJSON ($rootdir."test/image_tests.json");
     $count = count ($tests); //get number of test versions already
     $error = "";
     
-    if (empty($_SESSION['loggedIn'])) { ?>
-        <script>
-           redirect ("admin.php"); 
-        </script>
-    <?php }
+    redirectToLogin();
     
     if (!empty($_POST['questions'])) {
         $_SESSION['questions'] = $_POST['questions'];
@@ -22,7 +16,7 @@
             $error = "Error: That test version already exists.";
         }
     } elseif (!empty($_POST['submit'])) {
-        $json = decodeJSON($rootdir."test/tests.json");
+        $json = decodeJSON($rootdir."test/image_tests.json");
         $test = array ();
         $test["Date"] = date("m-d-y h:i:s a");
         $questions = array ();
@@ -40,23 +34,18 @@
         $test["Questions"] = $questions;
         $test["Right Answers"] = $correct;
         $json[$_SESSION['version']] = $test;
-        encodeJSON ($rootdir."test/tests.json", $json);
+        encodeJSON ($rootdir."test/image_tests.json", $json);
         $count++; 
     }
+    
+    backNavigation ();
 ?>
-
-<!-- Back Navigation -->
-<a href="admin.php" target="_self" class="back">Admin &lt;&lt;</a>
 
 <h1>Generate Image Test</h1>
 
-<?php if (empty($_POST['questions']) or !empty($error)): ?>
-    <!-- If Error -->
-    <?php if (!empty($error)) : ?>
-        <h3><?php echo $error; ?></h3>
-    <?php endif; ?>
-    
-    <!-- Generate Test Form -->
+<?php if (empty($_POST['questions']) or !empty($error)): 
+    displayError(); ?>
+    <!-- Test Block & Number Trials -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table class='form'>
             <tr>
@@ -73,7 +62,7 @@
 <?php else: ?>
     <!-- Generate Test Form -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
-        <?php for ($i=0; $i<$_SESSION['questions']; $i++) : ?>
+        <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
         <h2>Trial <?php echo $i+1; ?></h2>
         <table class='form'>
             <tr>
@@ -97,9 +86,8 @@
         <?php endfor; ?>
         <input type="submit" name="submit" value="Submit">
     </form>
-    
-    
-<?php endif; 
+<?php 
+    endif; 
     require_once $footer;
 ?>
 

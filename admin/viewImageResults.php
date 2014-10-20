@@ -5,15 +5,16 @@
     redirectToLogin();
     
     if (!empty($_GET['del'])) {
-        deleteResults ($_GET['del'], 'sound');
+        deleteResults ($_GET['del'], 'image');
     } 
 ?>
 
 <a href="<?php if (!empty($_GET['id'])) echo 'viewImageResults.php'; else echo 'admin.php'; ?>" target="_self" class="back"><?php if (!empty($_GET['id'])) echo 'Test Results'; else echo 'Admin'; ?> &lt;&lt;</a>
- 
+        
 <h1>Participant Results</h1>
 
-<?php $results = decodeJSON($rootdir."results/sound_responses.json"); ?>
+<?php $results = decodeJSON($rootdir."results/image_responses.json"); ?>
+
 <?php if (empty($_GET['id'])) : ?>
     <?php foreach ($results as $id => $r) : ?>
     <table class='view'>
@@ -70,20 +71,18 @@
             <th>Trial</th>
             <th>Response</th>
             <th>Correct?</th>
-            <th>Response Time</th>
         </tr>
     <?php 
         $i = 1;
         foreach ($r["Questions"] as $question) : ?>
             <tr>
                 <td><?php echo $i++; ?></td>
-                <td><?php echo ucwords($question["answer"]); ?></td>
-                <td><?php echo ucwords($question["correct"]); ?></td>
-                <td><?php echo ucwords($question["response time"]); ?></td>
+                <td><?php echo $question["answer"]; ?></td>
+                <td><?php echo $question["correct"]; ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
 <?php
-    require_once $footer;
     endif;
+    require_once $footer;
 ?>

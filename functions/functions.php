@@ -13,16 +13,20 @@
         return $json;
     }
     
-    function deleteImageTest ($version) {
-        $tests = decodeJSON ($rootdir."test/tests.json");
+    function deleteTest ($version, $type) {
+        global $rootdir;
+        $test_file = $rootdir.'test/'.$type.'_tests.json';
+        $tests = decodeJSON ($test_file);
         unset($tests[$version]);
-        encodeJSON($rootdir."test/tests.json", $tests);
+        encodeJSON($test_file, $tests);
     }
     
-    function deleteSoundTest ($version) {
-        $tests = decodeJSON ($rootdir."test/sound_tests.json");
-        unset($tests[$version]);
-        encodeJSON($rootdir."test/tests.json", $tests);
+    function deleteResults ($identifier, $type) {
+        global $rootdir;
+        $results_file = $rootdir.'results/'.$type.'_responses.json';
+        $results = decodeJSON ($results_file);
+        unset($results[$identifier]);
+        encodeJSON($results_file, $results);
     }
     
     function saveFile ($filename, $destination) {
