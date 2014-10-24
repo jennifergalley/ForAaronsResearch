@@ -4,6 +4,7 @@
     //$rootdir = "/Users/stell_000/Documents/GitHub/ForAaronsResearch/";
 
     global $subdir;
+    $subdir = "/";
     //$subdir = "/ForAaronsResearch/";
 
     global $header;
