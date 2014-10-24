@@ -1,6 +1,6 @@
 <?php 
-    require_once "/../config/global.php"; 
-    require_once $header;
+    require_once ("../config/global.php"); 
+    require_once ($header);
     
     redirectToLogin();
     
@@ -84,5 +84,5 @@
     </table>
 <?php
     endif;
-    require_once $footer;
+    require_once ($footer);
 ?>

@@ -6,13 +6,13 @@
         logout ();
     } else { ?>
         <!-- My Stylesheet -->
-        <link rel="stylesheet" type="text/css" href='../css/style.css'>
+        <link rel="stylesheet" type="text/css" href='/css/style.css'>
     <?php }
 
     if (empty($_POST["name"]) and empty($_GET)) : ?>
     <div id="start">
 <?php 
-    $test = decodeJSON ("image_tests.json");    
+    $test = decodeJSON ("../test/image_tests.json");    
     if (empty($test)) :
         echo "<h2>Error - no tests available.</h2>";
     else : ?>

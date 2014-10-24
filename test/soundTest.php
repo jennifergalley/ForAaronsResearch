@@ -1,8 +1,8 @@
 <?php 
-    require_once "/../config/global.php";
+    require_once ("../config/global.php");
     
     if (empty($_POST["version"])) {
-        require_once $header;
+        require_once ($header);
         logout ();
     } else { ?>
         <!-- My Stylesheet -->
@@ -83,6 +83,6 @@
 <?php 
     endif; 
     if (empty($_POST["version"])) {
-        require_once $footer;
+        require_once ($footer);
     }
 ?>
