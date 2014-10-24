@@ -67,6 +67,10 @@ handlers:
 - url: /fonts
   static_dir: fonts
   
+- url: /test/image_tests.json
+  static_files: /test/image_tests.json
+  application_readable: true
+  
 - url: /(.+\.(json|png|jpg|wav))$
   static_files: \1
   upload: .+\.(json|png|jpg|wav)$
