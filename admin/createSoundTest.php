@@ -1,6 +1,6 @@
 <?php 
-    require_once "/../config/global.php"; 
-    require_once $header;
+    require_once ("/../config/global.php"); 
+    require_once ($header);
 
     $tests = decodeJSON ($rootdir."test/sound_tests.json");
     $count = count ($tests); //get number of test versions already
@@ -89,6 +89,6 @@
     </form>
 <?php 
     endif; 
-    require_once $footer;
+    require_once ($footer);
 ?>
 
