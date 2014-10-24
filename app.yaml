@@ -67,20 +67,10 @@ handlers:
 - url: /fonts
   static_dir: fonts
   
-- url: /results/image_responses.json
-  static_files: /results/image_responses.json
-  
-- url: /results/sound_responses.json
-  static_files: /results/sound_responses.json
-  
-- url: /test/image_tests.json
-  static_files: test/image_tests.json
-  
-- url: /test/sound_tests.json
-  static_files: test/sound_tests.json
-  
-- url: /test/tone.wav
-  static_files: test/tone.wav
+- url: /(.+\.(json|png|jpg|wav))$
+  static_files: \1
+  upload: .+\.(json|png|jpg|wav)$
+  application_readable: true
   
 - url: /(.+)/(.+)\.php$
   script: \1\2
