@@ -1,10 +1,11 @@
 <?php
     echo "Hello World?";
     global $rootdir;
-    $rootdir = "/Users/stell_000/Documents/GitHub/ForAaronsResearch/";
+    $rootdir = "../";
+    //$rootdir = "/Users/stell_000/Documents/GitHub/ForAaronsResearch/";
     
     global $subdir;
-    $subdir = "/ForAaronsResearch/";
+    //$subdir = "/ForAaronsResearch/";
     
     global $header;
     $header = $rootdir."config/header.php";
