@@ -7,8 +7,71 @@ threadsafe: yes
 
 handlers:
   # Serve php scripts.
-#- url: /test/imageTest.php
-#  script: /test/imageTest.php
+- url: /test/imageTest.php
+  script: /test/imageTest.php
+  
+- url: /test/soundTest.php
+  script: /test/soundTest.php
+  
+- url: /admin/admin.php
+  script: /admin/admin.php
+  
+- url: /admin/createImageTest.php
+  script: /admin/createImageTest.php
+  
+- url: /admin/createSoundTest.php
+  script: /admin/createSoundTest.php
+  
+- url: /admin/viewImageTests.php
+  script: /admin/viewImageTests.php
+  
+- url: /admin/viewImageResults.php
+  script: /admin/viewImageResults.php
+  
+- url: /admin/viewSoundTests.php
+  script: /admin/viewSoundTests.php
+  
+- url: /admin/viewSoundResults.php
+  script: /admin/viewSoundResults.php
+  
+- url: /functions/functions.php
+  script: /functions/functions.php
+  
+- url: /results/saveImageResponses.php
+  script: /results/saveImageResponses.php
+  
+- url: /results/saveSoundResponses.php
+  script: /results/saveSoundResponses.php
+  
+- url: /config/footer.php
+  script: /config/footer.php
+  
+- url: /config/global.php
+  script: /config/global.php
+  
+- url: /config/header.php
+  script: /config/header.php
+  
+- url: /config/modules.php
+  script: /config/modules.php
+  
+- url: /css
+  static_dir: css
+  
+- url: /js
+  static_dir: js
+  
+- url: /images
+  static_dir: images
+  
+- url: /fonts
+  static_dir: fonts
+  
+- url: /results
+  static_dir: results
+  
+- url: /test
+  static_dir: test
   
 - url: /(.+)/(.+)\.php$
   script: \1\2

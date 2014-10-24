@@ -1,6 +1,6 @@
 <?php 
     echo "hello world?";
-    require_once "/../config/global.php";
+    require_once "/config/global.php";
     
     if (empty($_POST["version"])) {
         require_once $header;
