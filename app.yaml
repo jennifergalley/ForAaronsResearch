@@ -67,11 +67,11 @@ handlers:
 - url: /fonts
   static_dir: fonts
   
-- url: /results
-  static_dir: results
+#- url: /results
+#  static_dir: results
   
-- url: /test
-  static_dir: test
+#- url: /test
+#  static_dir: test
   
 - url: /(.+)/(.+)\.php$
   script: \1\2
