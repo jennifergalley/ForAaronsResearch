@@ -15,11 +15,11 @@
     echo "functions";
     global $functions;
     $functions = $rootdir."functions/functions.php";
-    require_once ($functions);
+    require_once ("../functions/functions.php");
     echo "modules";
     global $modules;
     $modules = $rootdir."config/modules.php";
-    require_once ($modules);
+    require_once ("../config/modules.php");
     echo "date";
     date_default_timezone_set("America/Los_Angeles");
     echo "end";
