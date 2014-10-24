@@ -1,5 +1,5 @@
 <?php
-    require_once "/../config/global.php"; 
+    require_once ("../config/global.php"); 
     
     function encodeJSON ($file, $json) {
         $fp = fopen ($file, "w+");
