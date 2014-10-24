@@ -8,9 +8,12 @@
     }
     
     function decodeJSON ($file) {
+        echo $file;
+        echo "hello world";
         $json = file_get_contents($file);
         $json = json_decode($json, true);
         return $json;
+        print_r ($json);
     }
     
     function deleteTest ($version, $type) {

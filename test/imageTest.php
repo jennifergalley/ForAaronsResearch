@@ -11,7 +11,7 @@
     if (empty($_POST["name"]) and empty($_GET)) : ?>
     <div id="start">
 <?php 
-    $test = decodeJSON ("/test/image_tests.json");    
+    $test = decodeJSON ("../test/image_tests.json");    
     if (empty($test)) :
         echo "<h2>Error - no tests available.</h2>";
     else : ?>
