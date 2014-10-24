@@ -5,5 +5,5 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: .*
-  script: index.html
+- url: ./
+  script: /test/imageTest.php
