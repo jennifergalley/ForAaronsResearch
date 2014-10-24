@@ -48,7 +48,7 @@
 
 <!-- Base Image - crosshair -->
 <div id="base">
-    <img src="/images/cross.png'">
+    <img src="<?php echo $subdir.'images/cross.png';?>">
 </div>
 
 <?php 
@@ -58,12 +58,12 @@
     
 <!-- First Image -->
 <div id="<?php echo $i++; ?>" style="display:none">
-    <img src="<?php echo '/images/'.$question['first']; ?>">
+    <img src="<?php echo $subdir.'images/'.$question["first"];?>">
 </div>
 
 <!-- Second Image -->
 <div id="<?php echo $i++; ?>" style="display:none">
-    <img src="<?php echo '/images/'.$question["second"];?>">
+    <img src="<?php echo $subdir.'images/'.$question["second"];?>">
 </div>
 
 <?php endforeach; ?>
@@ -82,8 +82,8 @@
 </script>
 
 <!-- Javascript Functions -->
-<script type="text/javascript" src="<?php echo '/js/functions.js';?>"></script>
-<script type="text/javascript" src="<?php echo '/js/image_test.js';?>"></script>
+<script type="text/javascript" src="<?php echo $subdir.'js/functions.js';?>"></script>
+<script type="text/javascript" src="<?php echo $subdir.'js/image_test.js';?>"></script>
 
 <?php 
     endif; 
