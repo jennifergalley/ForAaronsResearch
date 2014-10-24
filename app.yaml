@@ -6,8 +6,5 @@ threadsafe: yes
 
 
 handlers:
-- url: /test/imageTest.php
-  script: /test/imageTest.php
-  
-- url: /test/soundTest.php
-  script: /test/soundTest.php
+- url: .*
+  script: index.html
