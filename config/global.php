@@ -1,5 +1,5 @@
 <?php
-
+    echo "Hello World?";
     global $rootdir;
     $rootdir = "/Users/stell_000/Documents/GitHub/ForAaronsResearch/";
     
