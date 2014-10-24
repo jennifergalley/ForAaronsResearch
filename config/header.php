@@ -2,7 +2,7 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    require_once "/../config/global.php"; 
+    require_once ("../config/global.php"); 
 ?>
 
 <!DOCTYPE html>
