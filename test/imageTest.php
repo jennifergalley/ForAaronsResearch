@@ -1,6 +1,6 @@
 <?php 
     echo "hello world?";
-    require_once "./config/global.php";
+    require_once "http://academic-research-724.appspot.com/config/global.php";
     echo "hello world?";
     if (empty($_POST["version"])) {
         require_once $header;
