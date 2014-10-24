@@ -11,7 +11,9 @@
     if (empty($_POST["name"]) and empty($_GET)) : ?>
     <div id="start">
 <?php 
-    print_r (file_get_contents("image_tests.json"));
+    print_r (file_get_contents("../test/image_tests.json"));
+    echo "inbetween";
+    print_r (file_get_contents("/test/image_tests.json"));
     $test = decodeJSON ("image_tests.json");    
     if (empty($test)) :
         echo "<h2>Error - no tests available.</h2>";
