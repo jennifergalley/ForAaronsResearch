@@ -1,4 +1,5 @@
 <?php 
+    echo "hello world?";
     require_once "/../config/global.php";
     
     if (empty($_POST["version"])) {
