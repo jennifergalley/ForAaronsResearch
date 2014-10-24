@@ -9,7 +9,7 @@
     
     function decodeJSON ($file) {
         echo "<a href='".$file."'>try me</a>";
-        $json = file_get_contents($file);
+        $json = file_get_contents("$file");
         print_r ($json);
         $json = json_decode($json, true);
         print_r ($json);
