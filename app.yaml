@@ -67,11 +67,12 @@ handlers:
 - url: /fonts
   static_dir: fonts
   
-- url: /(.+\.(json))$
+- url: /data
+  static_dir: data
   mime_type: application/json
   #static_files: \1
-  upload: .+\.(json)$
-  application_readable: true
+  #upload: .+\.(json)$
+  #application_readable: true
   
 - url: /(.+\.(png|jpg|wav))$
   static_files: \1
