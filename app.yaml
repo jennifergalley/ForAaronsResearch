@@ -4,6 +4,7 @@ runtime: php
 api_version: 1
 threadsafe: yes
 
-handlers:
-- url: /
-  script: /test/imageTest.php
+
+#handlers:
+#- url: /
+#  script: /test/imageTest.php
