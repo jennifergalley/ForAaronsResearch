@@ -6,5 +6,9 @@ threadsafe: yes
 
 
 handlers:
-- url: .*
-  script: index.html
+#- url: .*
+ # script: index.html
+  
+  # Serve php scripts.
+- url: /(.+\.php)
+  script: \1
