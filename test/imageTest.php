@@ -3,11 +3,11 @@
     require_once ("../config/global.php");
     echo "hello world?";
     if (empty($_POST["version"])) {
-        require_once $header;
+        require_once ($header);
         logout ();
     } else { ?>
         <!-- My Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<?php echo $subdir.'css/style.css';?>">
+        <link rel="stylesheet" type="text/css" href='../css/style.css'>
     <?php }
 
     if (empty($_POST["name"]) and empty($_GET)) : ?>
@@ -90,6 +90,6 @@
 <?php 
     endif; 
     if (empty($_POST["version"])) {
-        require_once $footer;
+        require_once ($footer);
     }
 ?>
