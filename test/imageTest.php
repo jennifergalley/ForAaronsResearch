@@ -1,7 +1,7 @@
 <?php 
     echo "hello world?";
-    require_once "/config/global.php";
-    
+    require_once "/../config/global.php";
+    echo "hello world?";
     if (empty($_POST["version"])) {
         require_once $header;
         logout ();
