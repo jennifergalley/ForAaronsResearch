@@ -7,10 +7,10 @@ threadsafe: yes
 
 handlers:
 - url: /test
-  static_dir: test
+  script: test
   
 - url: /admin
-  static_dir: admin
+  script: admin
   
   # Serve php scripts.
 - url: /(.+\.php)
