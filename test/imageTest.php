@@ -2,7 +2,6 @@
     require_once ("../config/global.php");
     if (empty($_POST["version"])) {
         require_once ($header);
-        echo "hello?";
         logout ();
     } else { ?>
         <!-- My Stylesheet -->

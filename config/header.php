@@ -15,11 +15,11 @@
         <title>Test Center</title>
     
         <!-- Bootstrap -->
-        <script src="js/respond.js"></script>
-        <link rel="stylesheet" href="<?php echo $subdir; ?>css/bootstrap.min.css">
+        <script src="/js/respond.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
     
         <!-- My Stylesheet -->
-        <link rel="stylesheet" type="text/css" href="<?php echo $subdir.'css/style.css';?>">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         
     </head>
     
@@ -43,9 +43,9 @@
                     <div class='collapse navbar-collapse' id='collapse'>
                         <ul class='nav navbar-nav'>
                             <!-- <li><a class="nav" href="<?php echo $subdir; ?>index.php">Home</a></li> -->
-                            <li><a class="nav" href="<?php echo $subdir; ?>test/imageTest.php">Take Image Test</a></li>
-                            <li><a class="nav" href="<?php echo $subdir; ?>test/soundTest.php">Take Sound Test</a></li>
-                            <li><a class="nav" href="<?php echo $subdir; ?>admin/admin.php">Admin</a></li>
+                            <li><a class="nav" href="/test/imageTest.php">Take Image Test</a></li>
+                            <li><a class="nav" href="/test/soundTest.php">Take Sound Test</a></li>
+                            <li><a class="nav" href="/admin/admin.php">Admin</a></li>
                         </ul>
                     </div>
                 </nav>
