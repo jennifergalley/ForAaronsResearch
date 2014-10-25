@@ -8,7 +8,7 @@
         $ctx = stream_context_create($options);
         
         if (false == rename($_FILES['file']['tmp_name'][$i], $fileName, $ctx)) { //duplicate
-            unlink($tmpname); //delete
+            unlink($_FILES['file']['tmp_name'][$i]); //delete
         }
     }
     
