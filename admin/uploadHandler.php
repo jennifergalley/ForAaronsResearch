@@ -1,6 +1,6 @@
 <?php
     echo "hello world<br>";
-    $num = count($_FILES);
+    $num = count($_FILES['file']['name']);
     echo $num;
     var_dump ($_FILES);
     for ($i = 0; $i < $num; $i++) {
