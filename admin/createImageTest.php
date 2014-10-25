@@ -24,12 +24,14 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i+1;
-            if (saveFile ('first'.$i) == false) {
+            $r = saveFile ('first'.$i);
+            if (!$r) {
                 $error = "Error - max filesize exceeded (1MB).";
                 echo $error;
                 break;
             }
-            if (saveFile ('second'.$i) == false) {
+            $r = saveFile ('second'.$i);
+            if (!$r) {
                 $error = "Error - max filesize exceeded (1MB).";
                 echo $error;
                 break;
