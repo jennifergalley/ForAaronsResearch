@@ -112,7 +112,9 @@
 
 <script type="text/javascript">
     function autoselect (value, i) {
+        alert ("autoselect");
         if (value == "125" or value == "200") {
+            alert ("setting true");
             document.getElementById("none"+i).selected = true;
         } else  {
             document.getElementById("none"+i).selected = false;
