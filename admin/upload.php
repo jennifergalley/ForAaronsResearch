@@ -1,13 +1,13 @@
 <?php
-    echo 'hello';
     require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
-    echo ' world';
     use google\appengine\api\cloud_storage\CloudStorageTools;
     
+    echo 'hello';
     $options = array('gs_bucket_name' => 'aarons-tests/images', 'acl'=>'public-read', 'max_bytes_per_blob' => 1048576);
+    echo ' world'; 
     $upload_url = CloudStorageTools::createUploadUrl('/admin/uploadHandler.php', $options);
+    echo ' hello';
 ?>
-
     <form method="post" action="<?php echo $upload_url; ?>" enctype="multipart/form-data">
         <table class='form'>
             <tr>
