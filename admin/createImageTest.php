@@ -1,4 +1,5 @@
 <?php 
+    require_once ("../config/global.php");
     require_once ($header);
     echo $_SESSION['loggedIn'];
     $tests = decodeJSON ($rootdir."test/image_tests.json");

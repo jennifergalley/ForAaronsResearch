@@ -1,4 +1,5 @@
 <?php 
+    require_once ("../config/global.php");
     require_once ($header);
 
     $tests = decodeJSON ($rootdir."test/sound_tests.json");
