@@ -34,7 +34,7 @@
     
     function saveFile ($filename) {
         global $images;
-        echo "Helloworld";
+        echo "Hello world";
         echo $_FILES[$filename]["size"];
         if ($_FILES[$filename]["size"] > 1048576) {
             return false;
