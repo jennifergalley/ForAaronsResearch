@@ -24,19 +24,24 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i + 1;
-            saveFile ('image'.$i);
+            if (saveFile ('image'.$i) == false) {
+                $error = "Error - max filesize exceeded (1MB).";
+                break;   
+            }
             $questions["$index"] = array (
                 "image" => $_FILES['image'.$i]["name"],
                 "tone" => $_POST['tone'][$i]
             );
             $correct["$index"] = $_POST['correct'.$i];
         }
-        $test["Questions"] = $questions;
-        $test["Right Answers"] = $correct;
-        $json[$_SESSION['version']] = $test;
-        encodeJSON ($soundTests, $json);
-        $error = "Test Created!";
-        $count++; 
+        if (empty($error)) {
+            $test["Questions"] = $questions;
+            $test["Right Answers"] = $correct;
+            $json[$_SESSION['version']] = $test;
+            encodeJSON ($soundTests, $json);
+            $error = "Test Created!";
+            $count++; 
+        }
     }
     
     backNavigation ();

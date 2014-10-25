@@ -34,8 +34,11 @@
     
     function saveFile ($filename) {
         global $images;
-        move_uploaded_file($_FILES[$filename]["tmp_name"], $images.$_FILES[$filename]["name"]);
-        return $images.$_FILES[$filename]["name"];
+        if ($_FILES[$filename]["size"] > 1000000) {
+            return false;
+        }
+        //move_uploaded_file($_FILES[$filename]["tmp_name"], $images.$_FILES[$filename]["name"]);
+        //return $images.$_FILES[$filename]["name"];
     }
 ?>
 

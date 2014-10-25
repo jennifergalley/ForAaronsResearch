@@ -24,19 +24,28 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i+1;
-            saveFile ('first'.$i);
-            saveFile ('second'.$i);
+            if (saveFile ('first'.$i) == false) {
+                $error = "Error - max filesize exceeded (1MB).";
+                break;
+            }
+            if (saveFile ('second'.$i) == false) {
+                $error = "Error - max filesize exceeded (1MB).";
+                break;
+            } 
             $questions["$index"] = array (
                 "first" => $_FILES['first'.$i]["name"],
                 "second" => $_FILES['second'.$i]["name"]
             );
             $correct["$index"] = $_POST['correct'.$i];
         }
-        $test["Questions"] = $questions;
-        $test["Right Answers"] = $correct;
-        $json[$_SESSION['version']] = $test;
-        encodeJSON ($imageTests, $json);
-        $count++; 
+        if (empty($error)) {
+            $test["Questions"] = $questions;
+            $test["Right Answers"] = $correct;
+            $json[$_SESSION['version']] = $test;
+            encodeJSON ($imageTests, $json);
+            $count++; 
+        }
+        
     }
     
     backNavigation ();
