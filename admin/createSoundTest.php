@@ -86,7 +86,7 @@
             <tr>
                 <!-- Tone -->
                 <td><label for="tone[]">Tone Delay in ms:</label></td>
-                <td><select name="tone[]">
+                <td><select name="tone[]" onchange="autoselect(this.value)">
                     <option value="">No Tone</option>
                     <option value="125">125ms</option>
                     <option value="200">200ms</option>
@@ -98,7 +98,7 @@
                 <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
                 <td><input required type="radio" name="correct<?php echo $i; ?>" value="left">Left</input>
                 <input required type="radio" name="correct<?php echo $i; ?>" value="right">Right</input>
-                <input required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
+                <input id="none" required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
             </tr>
         </table>
         <br>
@@ -109,4 +109,14 @@
     endif; 
     require_once ($footer);
 ?>
+
+<script type="text/javascript">
+    function autoselect (value) {
+        if (value != "") {
+            document.getElementById("none").selected = true;
+        } else  {
+            document.getElementById("none").selected = false;
+        }
+    }
+</script>
 
