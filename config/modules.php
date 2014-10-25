@@ -2,7 +2,6 @@
     session_start();
     
     function redirectToLogin () {
-        echo $_SESSION['loggedIn'];
         if (empty($_SESSION['loggedIn'])) { ?>
         <script>
            redirect ("admin.php"); 
