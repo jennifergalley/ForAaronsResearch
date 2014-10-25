@@ -22,6 +22,12 @@ handlers:
 - url: /admin/createSoundTest.php
   script: /admin/createSoundTest.php
   
+- url: /admin/testingBrowse.php
+  script: /admin/testingBrowse.php
+  
+- url: /admin/createImageTestHandler.php
+  script: /admin/createImageTestHandler.php
+  
 - url: /admin/viewImageTests.php
   script: /admin/viewImageTests.php
   
