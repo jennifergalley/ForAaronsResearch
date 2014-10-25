@@ -86,7 +86,7 @@
             <tr>
                 <!-- Tone -->
                 <td><label for="tone[]">Tone Delay in ms:</label></td>
-                <td><select name="tone[]" onchange="autoselect(this.value)">
+                <td><select name="tone[]" onchange="autoselect(this.value, <?php echo $i; ?>)">
                     <option value="">No Tone</option>
                     <option value="125">125ms</option>
                     <option value="200">200ms</option>
@@ -98,7 +98,7 @@
                 <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
                 <td><input required type="radio" name="correct<?php echo $i; ?>" value="left">Left</input>
                 <input required type="radio" name="correct<?php echo $i; ?>" value="right">Right</input>
-                <input id="none" required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
+                <input id="none<?php echo $i; ?>" required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
             </tr>
         </table>
         <br>
@@ -111,11 +111,11 @@
 ?>
 
 <script type="text/javascript">
-    function autoselect (value) {
-        if (value != "") {
-            document.getElementById("none").selected = true;
+    function autoselect (value, i) {
+        if (value == "125" or value == "200") {
+            document.getElementById("none"+i).selected = true;
         } else  {
-            document.getElementById("none").selected = false;
+            document.getElementById("none"+i).selected = false;
         }
     }
 </script>
