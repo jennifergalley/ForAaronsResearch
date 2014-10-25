@@ -17,7 +17,7 @@
     
     function deleteTest ($version, $type) {
         global $soundTests, $imageTests;
-        if ($file == "sound") $file = $soundTests;
+        if ($type == "sound") $file = $soundTests;
         else $file = $imageTests;
         $tests = decodeJSON ($file);
         unset($tests[$version]);
@@ -26,7 +26,7 @@
     
     function deleteResults ($identifier, $type) {
         global $soundResponses, $imageResponses;
-        if ($file == "sound") $file = $soundResponses;
+        if ($type == "sound") $file = $soundResponses;
         else $file = $imageResponses;
         $results = decodeJSON ($file);
         unset($results[$identifier]);
