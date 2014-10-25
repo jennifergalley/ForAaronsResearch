@@ -1,5 +1,6 @@
 <?php 
     if (session_status() == PHP_SESSION_NONE) {
+        echo "starting session";
         session_start();
     }
     require_once ("../config/global.php"); 
