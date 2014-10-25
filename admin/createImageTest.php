@@ -74,7 +74,7 @@
                     while (false !== ($entry = readdir($handle))) : 
                         $pic = 'http://storage.googleapis.com/aarons-tests/images/'.$entry; ?>
             <tr>
-                <td><input required type="radio" name="<?php echo 'first'.$i; ?>"><img style="max-height:'100px';max-width:'100px';" src="<?php echo $pic; ?>"></td>
+                <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img style="max-height:'100px';max-width:'100px';" src="<?php echo $pic; ?>"></td>
             </tr>
                 <?php endwhile;
                     closedir($handle);
@@ -87,7 +87,7 @@
                     while (false !== ($entry = readdir($handle))) : 
                         $pic = 'http://storage.googleapis.com/aarons-tests/images/'.$entry; ?>
             <tr>
-                <td><input required type="radio" name="<?php echo 'second'.$i; ?>"><img style="max-height:'100px';max-width:'100px';" src="<?php echo $pic; ?>"></td>
+                <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img style="max-height:'100px';max-width:'100px';" src="<?php echo $pic; ?>"></td>
             </tr>
                 <?php endwhile;
                     closedir($handle);
