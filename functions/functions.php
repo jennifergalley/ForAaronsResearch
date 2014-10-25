@@ -3,14 +3,9 @@
     require_once ("../config/global.php"); 
     
     function encodeJSON ($file, $json) {
-        echo "entering encodeJSON";
-        echo $file;
         $fp = fopen ($file, "w");
-        echo "opened";
         fwrite ($fp, json_encode ($json, (JSON_PRETTY_PRINT | JSON_FORCE_OBJECT)));
-        echo "written";
         fclose ($fp);
-        echo "end";
     }
     
     function decodeJSON ($file) {
