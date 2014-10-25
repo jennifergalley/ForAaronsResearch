@@ -66,7 +66,6 @@
         <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
         <h2>Trial <?php echo $i+1; ?></h2>
         <table class='form'>
-            <tr></tr>
             <tr>
                 <!-- First Image -->
                 <td><label for="<?php echo 'first'.$i; ?>">First Image:</label></td>
@@ -102,7 +101,6 @@
                 <td><input required type="radio" name="correct<?php echo $i; ?>" value="yes">True</input>
                 <input required type="radio" name="correct<?php echo $i; ?>" value="no">False</input></td>
             </tr>
-            <tr></tr>
         </table>
         <br>
         <?php endfor; ?>

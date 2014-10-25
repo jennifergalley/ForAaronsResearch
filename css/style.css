@@ -98,7 +98,7 @@ table {
     width: 80%;
     margin: auto;
     border-collapse: collapse;
-    border: 1px solid #B8B8B8;
+    /*border: 1px solid #B8B8B8;*/
 }
 
 td, th {
