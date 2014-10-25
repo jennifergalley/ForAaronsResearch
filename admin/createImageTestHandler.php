@@ -3,6 +3,9 @@
     require_once ("../config/global.php");
     require_once ($header);
     
+    var_dump ($_FILES);
+    var_dump ($_POST);
+    
     $json = decodeJSON($imageTests);
     $test = array ();
     $test["Date"] = date("m-d-y h:i:s a");
