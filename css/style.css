@@ -17,6 +17,11 @@ footer {
     font-size: .8em;
 }
 
+.form_img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
 .jumbotron {
     background-color: #70C6FF;
 }
