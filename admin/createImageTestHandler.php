@@ -8,8 +8,7 @@
     $test["Date"] = date("m-d-y h:i:s a");
     $questions = array ();
     $correct = array ();
-    $index = 0;
-    foreach ($_FILES as $file) {
+    for ($i=0; $i < $_SESSION['questions']; $i++) {
         $index = $i+1;
         $questions["$index"] = array (
             "first" => $_FILES['first'.$i]["tmp_name"],
@@ -27,3 +26,9 @@
     //$ctx = stream_context_create($options);
     //rename('gs://my_bucket/oldname.txt', 'gs://my_bucket/newname.txt', $ctx);
 ?>
+<script type="text/javascript">
+    window.location = "createImageTest.php";
+</script>
+
+
+

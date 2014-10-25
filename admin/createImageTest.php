@@ -2,6 +2,7 @@
     session_start();
     require_once ("../config/global.php");
     require_once ($header);
+    require_once ("createImageTestHandler.php");
     
     require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
     use google\appengine\api\cloud_storage\CloudStorageTools;
