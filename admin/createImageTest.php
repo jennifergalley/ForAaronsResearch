@@ -8,6 +8,7 @@
     $error = "";
     
     redirectToLogin();
+    echo "redirect";
     
     if (!empty($_POST['questions'])) {
         $_SESSION['questions'] = $_POST['questions'];
@@ -24,14 +25,12 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i+1;
-            $r = saveFile ('first'.$i);
-            if (!$r) {
+            if (saveFile ('first'.$i) == false) {
                 $error = "Error - max filesize exceeded (1MB).";
                 echo $error;
                 break;
             }
-            $r = saveFile ('second'.$i);
-            if (!$r) {
+            if (saveFile ('second'.$i) == false) {
                 $error = "Error - max filesize exceeded (1MB).";
                 echo $error;
                 break;
@@ -53,11 +52,13 @@
     }
     
     backNavigation ();
+    echo "back";
 ?>
 
 <h1>Generate Image Test</h1>
 
 <?php if (empty($_POST['questions']) or !empty($error)): 
+    echo "asdflkjasdflkj";
     echo $error;
     displayError(); ?>
     <!-- Test Block & Number Trials -->

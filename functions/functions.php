@@ -36,7 +36,7 @@
         global $images;
         echo "Helloworld";
         echo $_FILES[$filename]["size"];
-        if ($_FILES[$filename]["size"] > 1000000) {
+        if ($_FILES[$filename]["size"] > 1048576) {
             return false;
         }
         //move_uploaded_file($_FILES[$filename]["tmp_name"], $images.$_FILES[$filename]["name"]);
