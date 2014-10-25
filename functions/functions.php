@@ -4,8 +4,9 @@
     
     function encodeJSON ($file, $json) {
         $fp = fopen ($file, "w+");
-        fwrite ($fp, json_encode ($json, (JSON_PRETTY_PRINT | JSON_FORCE_OBJECT)));
-        fclose ($fp);
+        print_r ($fp);
+        echo fwrite ($fp, json_encode ($json, (JSON_PRETTY_PRINT | JSON_FORCE_OBJECT)));
+        echo fclose ($fp);
     }
     
     function decodeJSON ($file) {
@@ -27,8 +28,6 @@
         $results_file = $rootdir.'results/'.$type.'_responses.json';
         $results = decodeJSON ($results_file);
         unset($results[$identifier]);
-        print_r ($identifier);
-        print_r ($results);
         encodeJSON($results_file, $results);
     }
     
