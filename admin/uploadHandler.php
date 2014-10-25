@@ -1,6 +1,8 @@
 <?php
     echo "hello world<br>";
     $num = count($_FILES);
+    echo $num;
+    var_dump ($_FILES);
     for ($i = 0; $i < $num; $i++) {
         echo $i."<br>";
         $fileName = 'gs://aarons-tests/images/'.$_FILES['file']['name'][$i];
