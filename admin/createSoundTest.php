@@ -24,24 +24,20 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i + 1;
-            if (saveFile ('image'.$i) == false) {
-                $error = "Error - max filesize exceeded (1MB).";
-                break;   
-            }
+            $image = $_POST['image'.$i];
             $questions["$index"] = array (
-                "image" => $_FILES['image'.$i]["name"],
+                "image" => $image,
                 "tone" => $_POST['tone'][$i]
             );
             $correct["$index"] = $_POST['correct'.$i];
         }
-        if (empty($error)) {
-            $test["Questions"] = $questions;
-            $test["Right Answers"] = $correct;
-            $json[$_SESSION['version']] = $test;
-            encodeJSON ($soundTests, $json);
-            $error = "Test Created!";
-            $count++; 
-        }
+        $test["Questions"] = $questions;
+        $test["Right Answers"] = $correct;
+        $json[$_SESSION['version']] = $test;
+        encodeJSON ($soundTests, $json);
+        $error = "Test Created!";
+        $count++; 
+    
     }
     
     backNavigation ();
@@ -74,8 +70,19 @@
             <tr>
                 <!-- Image -->
                 <td><label for="<?php echo 'image'.$i; ?>">Image:</label></td>
-                <td><input required type="file" name="<?php echo 'image'.$i; ?>"></td>
             </tr>
+            <tr>
+                <?php $j = 0;
+                if ($handle = opendir('gs://aarons-tests/images/')) {
+                    while (false !== ($entry = readdir($handle))) : 
+                        $j++;
+                        $pic = $imageURL.$entry; ?>
+                <td><input required type="radio" name="<?php echo 'image'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                <?php if ($j % 6 == 0) echo "</tr><tr>"; 
+                    endwhile;
+                    closedir($handle);
+                } ?>
+            <tr>
             <tr>
                 <!-- Tone -->
                 <td><label for="tone[]">Tone Delay in ms:</label></td>

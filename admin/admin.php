@@ -50,6 +50,8 @@
     <h2>Upload Images</h2>
     <a class="nav" href="<?php echo $subdir; ?>admin/upload.php">Upload Images</a>
     
+    <hr>
+    
     <h2>Image Test</h2>
     <a class="nav" href="<?php echo $subdir; ?>admin/viewImageResults.php">View Results</a>
     <a class="nav" href="<?php echo $subdir; ?>admin/viewImageTests.php">View Tests</a>
@@ -61,6 +63,8 @@
     <a class="nav" href="<?php echo $subdir; ?>admin/viewSoundResults.php">View Results</a>
     <a class="nav" href="<?php echo $subdir; ?>admin/viewSoundTests.php">View Tests</a>
     <a class="nav" href="<?php echo $subdir; ?>admin/createSoundTest.php">Generate Test</a>
+    
+    <hr>
     
     <h2>Logout</h2>
     <a class="nav" href="admin.php?logout" target="_self">Logout</a>
