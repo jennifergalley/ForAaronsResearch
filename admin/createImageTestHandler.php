@@ -11,10 +11,10 @@
     for ($i=0; $i < $_SESSION['questions']; $i++) {
         $index = $i+1;
         $questions["$index"] = array (
-            "first" => $_FILES["first$i"]["tmp_name"],
-            "second" => $_FILES["second$i"]["tmp_name"]
+            "first" => $_FILES['first'.$i]["tmp_name"],
+            "second" => $_FILES['second'.$i]["tmp_name"]
         );
-        $correct["$index"] = $_POST["correct$i"];
+        $correct["$index"] = $_POST['correct'.$i];
     }
     $test["Questions"] = $questions;
     $test["Right Answers"] = $correct;
