@@ -8,7 +8,6 @@
     $error = "";
     
     redirectToLogin();
-    echo "redirect";
     
     if (!empty($_POST['questions'])) {
         $_SESSION['questions'] = $_POST['questions'];
@@ -18,6 +17,7 @@
             $error = "Error: That test version already exists.";
         }
     } elseif (!empty($_POST['submit'])) {
+        echo "0";
         $json = decodeJSON($imageTests);
         $test = array ();
         $test["Date"] = date("m-d-y h:i:s a");
@@ -25,16 +25,17 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i+1;
+            echo "1";
             if (saveFile ('first'.$i) == false) {
                 $error = "Error - max filesize exceeded (1MB).";
-                echo $error;
                 break;
             }
+            echo "2";
             if (saveFile ('second'.$i) == false) {
                 $error = "Error - max filesize exceeded (1MB).";
-                echo $error;
                 break;
             } 
+            echo "3";
             $questions["$index"] = array (
                 "first" => $_FILES['first'.$i]["name"],
                 "second" => $_FILES['second'.$i]["name"]
@@ -52,14 +53,11 @@
     }
     
     backNavigation ();
-    echo "back";
 ?>
 
 <h1>Generate Image Test</h1>
 
 <?php if (empty($_POST['questions']) or !empty($error)): 
-    echo "asdflkjasdflkj";
-    echo $error;
     displayError(); ?>
     <!-- Test Block & Number Trials -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
