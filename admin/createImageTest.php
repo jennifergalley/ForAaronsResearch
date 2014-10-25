@@ -2,6 +2,12 @@
     session_start();
     require_once ("../config/global.php");
     require_once ($header);
+    
+    require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+    use google\appengine\api\cloud_storage\CloudStorageTools;
+    
+    $options = array('gs_bucket_name' => 'aarons-tests/images', 'max_bytes_per_blob' => 1048576);
+    $upload_url = CloudStorageTools::createUploadUrl('/admin/createImageTestHandler.php', $options);
 
     $tests = decodeJSON ($imageTests);
     $count = count ($tests); //get number of test versions already
@@ -71,11 +77,11 @@
                 <td><input required type="number" name="questions"></td>
             </tr>
         </table>
-        <input type="submit" name="submit" value="Continue">
+        <input type="submit" name="continue" value="Continue">
     </form>
 <?php else: ?>
     <!-- Generate Test Form -->
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
+    <form method="post" action="<?php echo $upload_url; ?>" enctype="multipart/form-data">
         <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
         <h2>Trial <?php echo $i+1; ?></h2>
         <table class='form'>
