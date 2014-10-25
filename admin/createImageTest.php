@@ -70,26 +70,29 @@
                 <!-- First Image -->
                 <td><label for="<?php echo 'first'.$i; ?>">First Image:</label></td>
             </tr>
-            <?php if ($handle = opendir('gs://aarons-tests/images/')) {
-                    while (false !== ($entry = readdir($handle))) : 
-                        $pic = $imageURL.$entry; ?>
             <tr>
-                <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-            </tr>
-                <?php endwhile;
+            <?php $i = 0;
+                if ($handle = opendir('gs://aarons-tests/images/')) {
+                    while (false !== ($entry = readdir($handle))) : 
+                        $i++;
+                        $pic = $imageURL.$entry; ?>
+                <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></input></td>
+                <?php if ($i == 3) echo "</tr><tr>"; 
+                    endwhile;
                     closedir($handle);
                 } ?>
             <tr>
                 <!-- Second Image -->
                 <td><label for="<?php echo 'second'.$i; ?>">Second Image:</label></td>
             </tr>
-                <?php if ($handle = opendir('gs://aarons-tests/images/')) {
+                <?php $i = 0; 
+                    if ($handle = opendir('gs://aarons-tests/images/')) {
                     while (false !== ($entry = readdir($handle))) : 
+                        $i++;
                         $pic = $imageURL.$entry; ?>
-            <tr>
-                <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-            </tr>
-                <?php endwhile;
+                <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></input></td>
+                <?php if ($i == 3) echo "</tr><tr>";  
+                    endwhile;
                     closedir($handle);
                 } ?>
             <tr>
