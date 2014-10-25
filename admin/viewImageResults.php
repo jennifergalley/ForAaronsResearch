@@ -2,8 +2,8 @@
     session_start();
     require_once ("../config/global.php");
     require_once ($header);
-    echo $_SESSION['loggedIn'];
-    //redirectToLogin();
+    
+    redirectToLogin();
     
     if (!empty($_GET['del'])) {
         deleteResults ($_GET['del'], 'image');

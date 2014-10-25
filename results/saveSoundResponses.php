@@ -1,4 +1,5 @@
-<?php require_once ("../config/global.php"); ?>
+<?php require_once ("../config/global.php"); 
+    session_start();?>
 <title>Test</title>
 <?php
     $arr = decodeJSON("sound_responses.json");

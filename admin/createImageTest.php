@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require_once ("../config/global.php");
     require_once ($header);
     echo $_SESSION['loggedIn'];

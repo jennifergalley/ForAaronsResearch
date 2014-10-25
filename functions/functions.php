@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once ("../config/global.php"); 
     
     function encodeJSON ($file, $json) {
