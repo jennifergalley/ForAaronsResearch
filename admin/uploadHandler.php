@@ -14,7 +14,7 @@
     
 ?>
 <script type="text/javascript">
-    window.location = "upload.php";
+    window.location = "/admin/upload.php";
 </script>
 
 
