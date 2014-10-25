@@ -8,13 +8,14 @@
         $ctx = stream_context_create($options);
         
         if (false == rename($_FILES['file']['tmp_name'][$i], $fileName, $ctx)) { //duplicate
-            unlink($_FILES['file']['tmp_name'][$i]); //delete
+            echo "deleting file";
+            echo unlink($_FILES['file']['tmp_name'][$i]); //delete
         }
     }
     
 ?>
 <script type="text/javascript">
-    window.location = "/admin/upload.php";
+   // window.location = "/admin/upload.php";
 </script>
 
 
