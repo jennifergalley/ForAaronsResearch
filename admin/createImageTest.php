@@ -66,6 +66,7 @@
         <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
         <h2>Trial <?php echo $i+1; ?></h2>
         <table class='form'>
+            <tr></tr>
             <tr>
                 <!-- First Image -->
                 <td><label for="<?php echo 'first'.$i; ?>">First Image:</label></td>
@@ -76,7 +77,7 @@
                     while (false !== ($entry = readdir($handle))) : 
                         $i++;
                         $pic = $imageURL.$entry; ?>
-                <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></input></td>
+                <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
                 <?php if ($i == 3) echo "</tr><tr>"; 
                     endwhile;
                     closedir($handle);
@@ -90,7 +91,7 @@
                     while (false !== ($entry = readdir($handle))) : 
                         $i++;
                         $pic = $imageURL.$entry; ?>
-                <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></input></td>
+                <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
                 <?php if ($i == 3) echo "</tr><tr>";  
                     endwhile;
                     closedir($handle);
@@ -101,6 +102,7 @@
                 <td><input required type="radio" name="correct<?php echo $i; ?>" value="yes">True</input>
                 <input required type="radio" name="correct<?php echo $i; ?>" value="no">False</input></td>
             </tr>
+            <tr></tr>
         </table>
         <br>
         <?php endfor; ?>
