@@ -25,10 +25,10 @@
     function deleteResults ($identifier, $type) {
         global $rootdir;
         $results_file = $rootdir.'results/'.$type.'_responses.json';
-        print_r ($results_file);
         $results = decodeJSON ($results_file);
-        print_r ($results);
         unset($results[$identifier]);
+        print_r ($identifier);
+        print_r ($results);
         encodeJSON($results_file, $results);
     }
     
