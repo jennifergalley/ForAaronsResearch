@@ -75,10 +75,6 @@ a.back {
     float:left;
 }
 
-a.logout {
-    float: right;
-}
-
 label {
     font-weight: bold;
     font-size: 18px;
