@@ -26,10 +26,12 @@
             $index = $i+1;
             if (saveFile ('first'.$i) == false) {
                 $error = "Error - max filesize exceeded (1MB).";
+                echo $error;
                 break;
             }
             if (saveFile ('second'.$i) == false) {
                 $error = "Error - max filesize exceeded (1MB).";
+                echo $error;
                 break;
             } 
             $questions["$index"] = array (
@@ -39,6 +41,7 @@
             $correct["$index"] = $_POST['correct'.$i];
         }
         if (empty($error)) {
+            echo "saving test";
             $test["Questions"] = $questions;
             $test["Right Answers"] = $correct;
             $json[$_SESSION['version']] = $test;
@@ -54,6 +57,7 @@
 <h1>Generate Image Test</h1>
 
 <?php if (empty($_POST['questions']) or !empty($error)): 
+    echo $error;
     displayError(); ?>
     <!-- Test Block & Number Trials -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
