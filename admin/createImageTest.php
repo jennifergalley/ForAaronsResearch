@@ -2,13 +2,6 @@
     session_start();
     require_once ("../config/global.php");
     require_once ($header);
-    //require_once ("createImageTestHandler.php");
-    
-    require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
-    use google\appengine\api\cloud_storage\CloudStorageTools;
-    
-    $options = array('gs_bucket_name' => 'aarons-tests/images', 'max_bytes_per_blob' => 1048576);
-    $upload_url = CloudStorageTools::createUploadUrl('/admin/createImageTestHandler.php', $options);
 
     $tests = decodeJSON ($imageTests);
     $count = count ($tests); //get number of test versions already
@@ -24,7 +17,6 @@
             $error = "Error: That test version already exists.";
         }
     } elseif (!empty($_POST['submit'])) {
-        echo "0";
         $json = decodeJSON($imageTests);
         $test = array ();
         $test["Date"] = date("m-d-y h:i:s a");
@@ -32,31 +24,19 @@
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i+1;
-            echo "1";
-            if (saveFile ('first'.$i) == false) {
-                $error = "Error - max filesize exceeded (1MB).";
-                break;
-            }
-            echo "2";
-            if (saveFile ('second'.$i) == false) {
-                $error = "Error - max filesize exceeded (1MB).";
-                break;
-            } 
-            echo "3";
+            $first = $_POST['first'.$i];
+            $second = $_POST['second'.$i];
             $questions["$index"] = array (
-                "first" => $_FILES['first'.$i]["name"],
-                "second" => $_FILES['second'.$i]["name"]
+                "first" => $first,
+                "second" => $second
             );
             $correct["$index"] = $_POST['correct'.$i];
         }
-        if (empty($error)) {
-            echo "saving test";
-            $test["Questions"] = $questions;
-            $test["Right Answers"] = $correct;
-            $json[$_SESSION['version']] = $test;
-            encodeJSON ($imageTests, $json);
-            $count++; 
-        }
+        $test["Questions"] = $questions;
+        $test["Right Answers"] = $correct;
+        $json[$_SESSION['version']] = $test;
+        encodeJSON ($imageTests, $json);
+        $count++; 
     }
     
     backNavigation ();
@@ -89,13 +69,29 @@
             <tr>
                 <!-- First Image -->
                 <td><label for="<?php echo 'first'.$i; ?>">First Image:</label></td>
-                <td><input required type="file" name="<?php echo 'first'.$i; ?>"></td>
             </tr>
+            <?php if ($handle = opendir('gs://aarons-tests/images/')) {
+                    while (false !== ($entry = readdir($handle))) : 
+                        $pic = 'http://storage.googleapis.com/aarons-tests/images/'.$entry; ?>
+            <tr>
+                <td><input required type="radio" name="<?php echo 'first'.$i; ?>"><img src="<?php echo $pic; ?>"></td>
+            </tr>
+                <?php endwhile;
+                    closedir($handle);
+                } ?>
             <tr>
                 <!-- Second Image -->
                 <td><label for="<?php echo 'second'.$i; ?>">Second Image:</label></td>
-                <td><input required type="file" name="<?php echo 'second'.$i; ?>"></td>
             </tr>
+                <?php if ($handle = opendir('gs://aarons-tests/images/')) {
+                    while (false !== ($entry = readdir($handle))) : 
+                        $pic = 'http://storage.googleapis.com/aarons-tests/images/'.$entry; ?>
+            <tr>
+                <td><input required type="radio" name="<?php echo 'second'.$i; ?>"><img src="<?php echo $pic; ?>"></td>
+            </tr>
+                <?php endwhile;
+                    closedir($handle);
+                } ?>
             <tr>
                 <!-- Correct Answer -->
                 <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
