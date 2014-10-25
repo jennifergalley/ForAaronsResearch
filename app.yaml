@@ -25,8 +25,11 @@ handlers:
 - url: /admin/testingBrowse.php
   script: /admin/testingBrowse.php
   
-- url: /admin/createImageTestHandler.php
-  script: /admin/createImageTestHandler.php
+- url: /admin/uploadHandler.php
+  script: /admin/uploadHandler.php
+  
+- url: /admin/upload.php
+  script: /admin/upload.php
   
 - url: /admin/viewImageTests.php
   script: /admin/viewImageTests.php
