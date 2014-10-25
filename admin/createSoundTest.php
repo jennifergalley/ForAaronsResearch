@@ -113,9 +113,7 @@
 <script type="text/javascript">
     function selectNone (i) {
         var value = document.getElementById("select"+i).value;
-        alert ("autoselect"+i);
         if (value != "") {
-            alert ("setting true");
             document.getElementById("none"+i).checked = true;
         } else  {
             document.getElementById("none"+i).checked = false;
