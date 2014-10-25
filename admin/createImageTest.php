@@ -76,7 +76,6 @@
 <?php else: ?>
     <!-- Generate Test Form -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
-        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
         <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
         <h2>Trial <?php echo $i+1; ?></h2>
         <table class='form'>
