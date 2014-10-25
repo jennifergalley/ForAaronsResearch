@@ -1,12 +1,17 @@
 <?php
-    $fileName = 'gs://aarons-tests/images/'.$_FILES['file']['name'][0];
-    
-    $options = array('gs'=>array('Content-Type' => $_FILES['file']['type'][0]));
-    $ctx = stream_context_create($options);
-    
-    if (false == rename($_FILES['file']['tmp_name'][0], $fileName, $ctx)) {
-      die('Could not rename.');
+    $num = count($_FILES);
+    for ($i = 0; $i < $num; $i++) {
+        $fileName = 'gs://aarons-tests/images/'.$_FILES['file']['name'][$i];
+        $tmpname = 'gs://aarons-tests/images/'.$_FILES['file']['tmp_name'][$i];
+        
+        $options = array('gs'=>array('Content-Type' => $_FILES['file']['type'][$i]));
+        $ctx = stream_context_create($options);
+        
+        if (false == rename($_FILES['file']['tmp_name'][$i], $fileName, $ctx)) { //duplicate
+            unlink($tmpname); //delete
+        }
     }
+    
 ?>
 <script type="text/javascript">
     window.location = "upload.php";
