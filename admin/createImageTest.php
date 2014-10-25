@@ -77,7 +77,7 @@
                         $j++;
                         $pic = $imageURL.$entry; ?>
                 <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($j == 3) echo "</tr><tr>"; 
+                <?php if ($j % 4 == 0) echo "</tr><tr>"; 
                     endwhile;
                     closedir($handle);
                 } ?>
@@ -91,7 +91,7 @@
                         $j++;
                         $pic = $imageURL.$entry; ?>
                 <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($j == 3) echo "</tr><tr>";  
+                <?php if ($j % 4 == 0) echo "</tr><tr>";  
                     endwhile;
                     closedir($handle);
                 } ?>
