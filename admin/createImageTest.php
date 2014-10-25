@@ -71,13 +71,13 @@
                 <td><label for="<?php echo 'first'.$i; ?>">First Image:</label></td>
             </tr>
             <tr>
-            <?php $i = 0;
+            <?php $j = 0;
                 if ($handle = opendir('gs://aarons-tests/images/')) {
                     while (false !== ($entry = readdir($handle))) : 
-                        $i++;
+                        $j++;
                         $pic = $imageURL.$entry; ?>
                 <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($i == 3) echo "</tr><tr>"; 
+                <?php if ($j == 3) echo "</tr><tr>"; 
                     endwhile;
                     closedir($handle);
                 } ?>
@@ -85,13 +85,13 @@
                 <!-- Second Image -->
                 <td><label for="<?php echo 'second'.$i; ?>">Second Image:</label></td>
             </tr>
-                <?php $i = 0; 
+                <?php $j = 0; 
                     if ($handle = opendir('gs://aarons-tests/images/')) {
                     while (false !== ($entry = readdir($handle))) : 
-                        $i++;
+                        $j++;
                         $pic = $imageURL.$entry; ?>
                 <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($i == 3) echo "</tr><tr>";  
+                <?php if ($j == 3) echo "</tr><tr>";  
                     endwhile;
                     closedir($handle);
                 } ?>
