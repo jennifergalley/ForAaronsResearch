@@ -49,6 +49,8 @@
     
     <a class="logout" href="admin.php?logout" target="_self">Logout</a>
     <br>
+    <h2>Upload Images</h2>
+    <a class="nav" href="<?php echo $subdir; ?>admin/upload.php">Upload Images</a>
     
     <h2>Image Test</h2>
     <a class="nav" href="<?php echo $subdir; ?>admin/viewImageResults.php">View Results</a>
