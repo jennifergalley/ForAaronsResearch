@@ -86,7 +86,7 @@
             <tr>
                 <!-- Tone -->
                 <td><label for="tone[]">Tone Delay in ms:</label></td>
-                <td><select name="tone[]" onchange="autoselect(this.value, <?php echo $i; ?>)">
+                <td><select id="select<?php echo $i; ?>" name="tone[]" onchange="selectNone(<?php echo $i; ?>)">
                     <option value="">No Tone</option>
                     <option value="125">125ms</option>
                     <option value="200">200ms</option>
@@ -111,13 +111,14 @@
 ?>
 
 <script type="text/javascript">
-    function autoselect (value, i) {
-        alert ("autoselect");
-        if (value == "125" or value == "200") {
+    function selectNone (i) {
+        var value = document.getElementById("select"+i).value;
+        alert ("autoselect"+i);
+        if (value != "") {
             alert ("setting true");
-            document.getElementById("none"+i).selected = true;
+            document.getElementById("none"+i).checked = true;
         } else  {
-            document.getElementById("none"+i).selected = false;
+            document.getElementById("none"+i).checked = false;
         }
     }
 </script>
