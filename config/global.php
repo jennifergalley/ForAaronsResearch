@@ -39,5 +39,8 @@
     global $images;
     $images = $datadir."images/";
     
+    global $imageURL;
+    $imageURL = "http://storage.googleapis.com/aarons-tests/images/";
+    
     date_default_timezone_set("America/Los_Angeles");
 ?>
