@@ -1,8 +1,6 @@
 <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-
+    session_start();
+    
     function redirectToLogin () {
         echo $_SESSION['loggedIn'];
         if (empty($_SESSION['loggedIn'])) { ?>

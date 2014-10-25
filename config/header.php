@@ -1,5 +1,4 @@
 <?php 
-    echo "starting session";
     session_start();
     
     require_once ("../config/global.php"); 
