@@ -48,7 +48,6 @@
             encodeJSON ($imageTests, $json);
             $count++; 
         }
-        
     }
     
     backNavigation ();
