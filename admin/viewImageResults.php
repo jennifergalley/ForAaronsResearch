@@ -14,7 +14,7 @@
         
 <h1>Participant Results</h1>
 
-<?php $results = decodeJSON($rootdir."results/image_responses.json"); ?>
+<?php $results = decodeJSON($imageResponses); ?>
 
 <?php if (empty($_GET['id'])) : ?>
     <?php foreach ($results as $id => $r) : ?>

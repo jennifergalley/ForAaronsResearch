@@ -12,7 +12,7 @@
     if (empty($_POST["name"]) and empty($_GET)) : ?>
     <div id="start">
 <?php 
-    $test = decodeJSON ("image_tests.json");    
+    $test = decodeJSON ($imageTests);    
     if (empty($test)) :
         echo "<h2>Error - no tests available.</h2>";
     else : ?>
@@ -41,7 +41,7 @@
 
 <!-- Populate Test -->
 <?php if (!empty($_POST["version"])) : 
-    $test = decodeJSON ("image_tests.json");  
+    $test = decodeJSON ($imageTests);  
     $test = $test[$_POST['version']];
 ?>
 

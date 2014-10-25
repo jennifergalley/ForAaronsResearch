@@ -14,7 +14,7 @@
 
 <h1>Test Blocks</h1>
 
-<?php $tests = decodeJSON($rootdir."test/image_tests.json"); 
+<?php $tests = decodeJSON($imageTests); 
     if (empty($tests)) :
         echo "<h2>There are currently no test versions available.</h2>";
     else :

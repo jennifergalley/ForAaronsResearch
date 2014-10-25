@@ -3,7 +3,7 @@
     require_once ("../config/global.php");
     require_once ($header);
 
-    $tests = decodeJSON ($rootdir."test/image_tests.json");
+    $tests = decodeJSON ($imageTests);
     $count = count ($tests); //get number of test versions already
     $error = "";
     
@@ -17,15 +17,15 @@
             $error = "Error: That test version already exists.";
         }
     } elseif (!empty($_POST['submit'])) {
-        $json = decodeJSON($rootdir."test/image_tests.json");
+        $json = decodeJSON($imageTests);
         $test = array ();
         $test["Date"] = date("m-d-y h:i:s a");
         $questions = array ();
         $correct = array ();
         for ($i=0; $i<$_SESSION['questions']; $i++) {
             $index = $i+1;
-            saveFile ('first'.$i, "/images");
-            saveFile ('second'.$i, "/images");
+            saveFile ('first'.$i);
+            saveFile ('second'.$i);
             $questions["$index"] = array (
                 "first" => $_FILES['first'.$i]["name"],
                 "second" => $_FILES['second'.$i]["name"]
@@ -35,7 +35,7 @@
         $test["Questions"] = $questions;
         $test["Right Answers"] = $correct;
         $json[$_SESSION['version']] = $test;
-        encodeJSON ($rootdir."test/image_tests.json", $json);
+        encodeJSON ($imageTests, $json);
         $count++; 
     }
     

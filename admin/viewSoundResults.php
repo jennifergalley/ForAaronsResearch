@@ -14,7 +14,7 @@
  
 <h1>Participant Results</h1>
 
-<?php $results = decodeJSON($rootdir."results/sound_responses.json"); ?>
+<?php $results = decodeJSON($soundResponses); ?>
 <?php if (empty($_GET['id'])) : ?>
     <?php foreach ($results as $id => $r) : ?>
     <table class='view'>

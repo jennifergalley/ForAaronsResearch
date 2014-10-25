@@ -14,7 +14,7 @@
 
 <h1>Test Blocks</h1>
 
-<?php $tests = decodeJSON($rootdir."test/sound_tests.json"); 
+<?php $tests = decodeJSON($soundTests); 
     if (empty($tests)) :
         echo "<h2>There are currently no test versions available.</h2>";
     else :

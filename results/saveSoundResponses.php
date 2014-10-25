@@ -2,12 +2,12 @@
     session_start();?>
 <title>Test</title>
 <?php
-    $arr = decodeJSON("sound_responses.json");
+    $arr = decodeJSON($soundResponses);
     $results = array ();
     $results["date"] = date("m-d-y h:i:s a");
     $results["participant"] = $_GET['participant'];
     $results["test version"] = $_GET['testVersion'];
-    $correctAnswers = decodeJSON ($rootdir."/test/sound_tests.json");
+    $correctAnswers = decodeJSON ($soundTests);
     $correctAnswers = $correctAnswers[$_GET['testVersion']]["Right Answers"];
     
     $score = 0;
@@ -33,7 +33,7 @@
     $results["Score"] = $score." out of ".$numQuestions;
     $results["Questions"] = $questions;
     $arr[] = $results;
-    encodeJSON ("sound_responses.json", $arr);
+    encodeJSON ($soundResponses, $arr);
 ?>
 <script type="text/javascript">
     window.location = "<?php echo $subdir.'test/soundTest.php?done';?>";

@@ -21,5 +21,23 @@
     $modules = $rootdir."config/modules.php";
     require_once ($modules);
     
+    global $datadir;
+    $datadir = "gs://aarons-tests/";
+    
+    global $soundTests;
+    $soundTests = $datadir."sound_tests.json";
+    
+    global $imageTests;
+    $imageTests = $datadir."image_tests.json";
+    
+    global $soundResponses;
+    $soundResponses = $datadir."sound_responses.json";
+    
+    global $imageResponses;
+    $imageResponses = $datadir."image_responses.json";
+    
+    global $images;
+    $images = $datadir."images/";
+    
     date_default_timezone_set("America/Los_Angeles");
 ?>
