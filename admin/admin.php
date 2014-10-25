@@ -6,6 +6,7 @@
     if (!empty($_POST['login'])){
         //Form Validation
         if ($_POST["user"] == "aaron" and $_POST["pswd"] == "password") {
+            echo "setting session";
             $_SESSION['loggedIn'] = true;
         } else {
             $error = "Error - username or password incorrect.";
@@ -13,6 +14,7 @@
     }
 
     if (isset($_GET['logout'])) {
+        echo "unsetting session";
         $_SESSION['loggedIn'] = NULL;
     }
 
