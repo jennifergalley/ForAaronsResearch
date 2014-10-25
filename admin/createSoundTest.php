@@ -86,7 +86,12 @@
             <tr>
                 <!-- Tone -->
                 <td><label for="tone[]">Tone Delay in ms:</label></td>
-                <td><input type="number" name="tone[]"></td>
+                <td><select name="tone[]">
+                    <option value="">No Tone</option>
+                    <option value="125">125ms</option>
+                    <option value="200">200ms</option>
+                </select>
+                </td>
             </tr>
             <tr>
                 <!-- Correct Answer -->
