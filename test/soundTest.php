@@ -54,6 +54,11 @@
 
 <!-- Test -->
 
+<!-- Base Image - dot -->
+<div id="base">
+    <img src="<?php echo $imageURL.'dot.jpg';?>">
+</div>
+
 <?php 
     //Populate Questions
     $i = 1;

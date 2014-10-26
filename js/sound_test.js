@@ -20,7 +20,7 @@
             
             myTimeout = setTimeout(function() { //timeout after 2 seconds, call response with null input
                 timeout ();
-            }, 2000); //timeout after 2 seconds
+            }, 1000); //timeout after 1 second
         }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
@@ -43,10 +43,19 @@
             window.location = url;
         } 
         increment (i); //increment i
-        showElem1(); //show
+        setTimeout(function() {}, 1000); //wait 1 second
+        start();
+    }
+    
+    function start () {
+        show("base");
+        setTimeout(function() {
+            hide ("base"); //hide base image
+            showElem1();
+        }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
     var start, end;
     setCookie ("elem", 1, 1); //set i initially to 1
-    showElem1 (); //show
+    start (); //show
     
