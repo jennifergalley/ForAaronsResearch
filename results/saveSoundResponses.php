@@ -43,9 +43,9 @@
     $avg = $total/$totalNum;
     $results["Score"] = $score." out of ".$numQuestions;
     $results["Questions"] = $questions;
-    $results["Average Correct"] = $avgCorrect;
-    $results["Average Wrong"] = $avgWrong;
-    $results["Average Total"] = $avg;
+    $results["Average Correct"] = $avgCorrect."ms";
+    $results["Average Wrong"] = $avgWrong."ms";
+    $results["Average Total"] = $avg."ms";
     $arr[] = $results;
     encodeJSON ($soundResponses, $arr);
 ?>
