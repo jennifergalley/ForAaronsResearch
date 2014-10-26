@@ -53,7 +53,7 @@
 
 <!-- Base Image - crosshair -->
 <div id="base">
-    <img src="<?php echo $imageURL.'cross.png';?>">
+    <img class="test" src="<?php echo $imageURL.'cross.png';?>">
 </div>
 
 <?php 
@@ -63,12 +63,12 @@
     
 <!-- First Image -->
 <div id="<?php echo $i++; ?>" style="display:none">
-    <img src="<?php echo $imageURL.$question["first"];?>">
+    <img class="test" src="<?php echo $imageURL.$question["first"];?>">
 </div>
 
 <!-- Second Image -->
 <div id="<?php echo $i++; ?>" style="display:none">
-    <img src="<?php echo $imageURL.$question["second"];?>">
+    <img class="test" src="<?php echo $imageURL.$question["second"];?>">
 </div>
 
 <?php endforeach; ?>

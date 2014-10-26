@@ -25,6 +25,10 @@ div.col-md-3 {
     padding: 2em;
 }
 
+img.test {
+    max-height: 300px;
+}
+
 hr {
     color: black;
 }

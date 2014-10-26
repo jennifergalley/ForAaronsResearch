@@ -66,7 +66,7 @@
     
 <!-- Image -->
 <div id="<?php echo $i++; ?>" style="display:none">
-    <img src="<?php echo $imageURL.$question['image'];?>">
+    <img class="test" src="<?php echo $imageURL.$question['image'];?>">
 </div>
 <?php endforeach; ?>
 
