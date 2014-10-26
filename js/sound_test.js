@@ -32,6 +32,12 @@
         }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
+    function pause () {
+        setTimeout(function() {
+            startAgain();
+        }, 1000); //wait 1 second
+    }
+    
     function response (e) {
         end = +new Date();
         var response_time = end - start;
@@ -51,9 +57,7 @@
             window.location = url;
         } 
         increment (i); //increment i
-        setTimeout(function() {
-            startAgain();
-        }, 1000); //wait 1 second
+        pause();
     }
     
     var start, end;
