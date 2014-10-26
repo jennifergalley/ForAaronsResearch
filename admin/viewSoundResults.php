@@ -15,7 +15,7 @@
 <h1>Participant Results</h1>
 
 <?php $results = decodeJSON($soundResponses); ?>
-<?php if (empty($_GET['id'])) : ?>
+<?php if (empty($_GET['id']) and $_GET['id'] != 0) : ?>
     <?php foreach ($results as $id => $r) : ?>
     <table class='view'>
         <tr>
