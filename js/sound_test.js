@@ -24,6 +24,14 @@
         }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
+    function startAgain () {
+        show("base");
+        setTimeout(function() {
+            hide ("base"); //hide base image
+            showElem1();
+        }, 500); //half a second between image + tone trials - ask aaron about this delay
+    }
+    
     function response (e) {
         end = +new Date();
         var response_time = end - start;
@@ -44,19 +52,11 @@
         } 
         increment (i); //increment i
         setTimeout(function() {
-            start();
+            startAgain();
         }, 1000); //wait 1 second
-    }
-    
-    function start () {
-        show("base");
-        setTimeout(function() {
-            hide ("base"); //hide base image
-            showElem1();
-        }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
     var start, end;
     setCookie ("elem", 1, 1); //set i initially to 1
-    start (); //show
+    startAgain (); //show
     
