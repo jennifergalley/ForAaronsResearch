@@ -22,7 +22,11 @@
         <table class='form'>
             <tr>
                 <td><label for="version">Test Block:</label></td>
-                <td><input required type="number" name="version"></td>
+                <td><select required name="version">
+                    <?php foreach ($test as $num => $test) : ?>
+                        <option value="<?php echo $num; ?>"><?php echo $num; ?></option>
+                    <?php endforeach; ?>
+                </select></td>
             </tr>
             <tr>
                 <td><label for="name">Please enter your name:</label></td>
