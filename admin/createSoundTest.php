@@ -96,9 +96,9 @@
             <tr>
                 <!-- Correct Answer -->
                 <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
-                <td><input required type="radio" name="correct<?php echo $i; ?>" value="left">Left</input>
-                <input required type="radio" name="correct<?php echo $i; ?>" value="right">Right</input>
-                <input id="none<?php echo $i; ?>" required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
+                <td><input required type="radio" name="correct<?php echo $i; ?>" value="left">Left</input></td>
+                <td><input required type="radio" name="correct<?php echo $i; ?>" value="right">Right</input></td>
+                <td><input id="none<?php echo $i; ?>" required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
             </tr>
         </table>
         <br>

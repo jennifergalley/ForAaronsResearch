@@ -98,8 +98,8 @@
             <tr>
                 <!-- Correct Answer -->
                 <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
-                <td><input required type="radio" name="correct<?php echo $i; ?>" value="yes">True</input>
-                <input required type="radio" name="correct<?php echo $i; ?>" value="no">False</input></td>
+                <td><input required type="radio" name="correct<?php echo $i; ?>" value="yes">True</input></td>
+                <td><input required type="radio" name="correct<?php echo $i; ?>" value="no">False</input></td>
             </tr>
         </table>
         <br>
