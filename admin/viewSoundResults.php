@@ -5,7 +5,7 @@
     
     redirectToLogin();
     
-    if (!empty($_GET['del'])) {
+    if (isset($_GET['del'])) {
         deleteResults ($_GET['del'], 'sound');
     } 
 ?>
