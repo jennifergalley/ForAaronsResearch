@@ -43,8 +43,9 @@
             window.location = url;
         } 
         increment (i); //increment i
-        setTimeout(function() {}, 1000); //wait 1 second
-        start();
+        setTimeout(function() {
+            start();
+        }, 1000); //wait 1 second
     }
     
     function start () {
