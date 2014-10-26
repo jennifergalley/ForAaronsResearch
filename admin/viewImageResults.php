@@ -16,7 +16,7 @@
 
 <?php $results = decodeJSON($imageResponses); ?>
 
-<?php if (empty($_GET['id']) or $_GET['id'] != 0) : ?>
+<?php if (!isset($_GET['id'])) : ?>
     <?php foreach ($results as $id => $r) : ?>
     <table class='view'>
         <tr>
