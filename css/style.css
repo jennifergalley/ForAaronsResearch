@@ -42,11 +42,10 @@ html {
 h1, h2, h3, h4 {
     text-align: center;
 }
-/*
-div img {
-    height: 300px;
-    width: 300px;
-}*/
+
+h2 {
+    font-weight: thick;
+}
 
 .form_img {
     max-height: 100px;
