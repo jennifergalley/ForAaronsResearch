@@ -10,7 +10,7 @@
     $correctAnswers = decodeJSON ($soundTests);
     $correctAnswers = $correctAnswers[$_GET['testVersion']]["Right Answers"];
     
-    $numCorrect = $numWrong = 0;
+    $numCorrect = $numWrong = $totalNum = 0;
     $correct = $wrong = $total = 0;
     $score = 0;
     $questions = array ();
@@ -25,21 +25,22 @@
             $questions[$i]["answer"] = "no response"; //timed out
         }
         if ($correctAnswers[$i] == $questions[$i]["answer"]) {
-            $numCorrect++; //to compute average - know what to divide by
+            $numCorrect = $_GET[$i."_time"] > 2000 ? $numCorrect : $numCorrect+1; //to compute average - know what to divide by
             $correct += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"]; //add response time to compute average
             $questions[$i]["correct"] = "true";   
             $score++;
         } else {
-            $numWrong++; //to compute average - know what to divide by
+            $numWrong = $_GET[$i."_time"] > 2000 ? $numWrong : $numWrong+1; //to compute average - know what to divide by
             $wrong += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"]; //add response time to compute average
             $questions[$i]["correct"] = "false";   
         }
         $questions[$i]["response time"] = $_GET[$i."_time"] > 2000 ? "0ms" : $_GET[$i."_time"]."ms";
         $total += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"];
+        $totalNum = $_GET[$i."_time"] > 2000 ? $totalNum : $totalNum+1;
     }
     $avgCorrect = $correct/$numCorrect;
     $avgWrong = $wrong/$numWrong;
-    $avg = $total/$numQuestions;
+    $avg = $total/$totalNum;
     $results["Score"] = $score." out of ".$numQuestions;
     $results["Questions"] = $questions;
     $results["Average Correct"] = $avgCorrect;

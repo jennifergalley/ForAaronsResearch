@@ -84,7 +84,7 @@
             </tr>
         <?php endforeach; ?>
     </table>
-    <table>
+    <table class="view">
         <tr>
             <td>Average Response Time for Correct Responses</td>
             <td><?php echo $r["Average Correct"]; ?></td>
