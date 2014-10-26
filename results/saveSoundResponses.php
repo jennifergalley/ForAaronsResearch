@@ -38,9 +38,9 @@
         $total += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"];
         $totalNum = $_GET[$i."_time"] > 2000 ? $totalNum : $totalNum+1;
     }
-    $avgCorrect = $correct/$numCorrect;
-    $avgWrong = $wrong/$numWrong;
-    $avg = $total/$totalNum;
+    $avgCorrect = round($correct/$numCorrect, 2);
+    $avgWrong = round($wrong/$numWrong, 2);
+    $avg = round($total/$totalNum, 2);
     $results["Score"] = $score." out of ".$numQuestions;
     $results["Questions"] = $questions;
     $results["Average Correct"] = $avgCorrect."ms";
