@@ -64,9 +64,9 @@
     $i = 1;
     foreach ($test["Questions"] as $question) : ?>
     
-<!-- First Image -->
+<!-- Image -->
 <div id="<?php echo $i++; ?>" style="display:none">
-    <img src="<?php echo $subdir.'images/'.$question['image'];?>">
+    <img src="<?php echo $imageURL.$question['image'];?>">
 </div>
 <?php endforeach; ?>
 
