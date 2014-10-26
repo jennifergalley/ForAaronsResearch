@@ -26,16 +26,16 @@
         }
         if ($correctAnswers[$i] == $questions[$i]["answer"]) {
             $numCorrect++; //to compute average - know what to divide by
-            $correct += $_GET[$i."_time"]."ms"; //add response time to compute average
+            $correct += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"]; //add response time to compute average
             $questions[$i]["correct"] = "true";   
             $score++;
         } else {
             $numWrong++; //to compute average - know what to divide by
-            $wrong += $_GET[$i."_time"]."ms"; //add response time to compute average
+            $wrong += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"]; //add response time to compute average
             $questions[$i]["correct"] = "false";   
         }
-        $questions[$i]["response time"] = $_GET[$i."_time"]."ms";
-        $total += $_GET[$i."_time"]."ms";
+        $questions[$i]["response time"] = $_GET[$i."_time"] > 2000 ? "0ms" : $_GET[$i."_time"]."ms";
+        $total += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"];
     }
     $avgCorrect = $correct/$numCorrect;
     $avgWrong = $wrong/$numWrong;
