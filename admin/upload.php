@@ -8,6 +8,8 @@
     $options = array('gs_bucket_name' => 'aarons-tests/images', 'max_bytes_per_blob' => 1048576);
     $upload_url = CloudStorageTools::createUploadUrl('/admin/uploadHandler.php', $options);
 ?>
+<a href="admin.php" target="_self" class="back">Admin &lt;&lt;</a>
+
     <h1>Upload Images</h1>
     <h3>Please note that the maximum image size is 1MB. Duplicate images will not be stored, so be sure your image names are unique. You may upload multiple image files at once.</h3>
     <form method="post" action="<?php echo $upload_url; ?>" enctype="multipart/form-data">
