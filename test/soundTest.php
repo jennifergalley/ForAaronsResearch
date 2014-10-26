@@ -56,7 +56,7 @@
 
 <!-- Base Image - dot -->
 <div id="base">
-    <img src="<?php echo $imageURL.'dot.jpg';?>">
+    <img class="test" src="<?php echo $imageURL.'dot.jpg';?>">
 </div>
 
 <?php 
