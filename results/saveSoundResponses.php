@@ -24,19 +24,20 @@
         } else { //was saving participant as 'no response'
             $questions[$i]["answer"] = "no response"; //timed out
         }
+        $timeout = $_GET[$i."_time"] > 1000; //timed out after 1 second
         if ($correctAnswers[$i] == $questions[$i]["answer"]) {
-            $numCorrect = $_GET[$i."_time"] > 2000 ? $numCorrect : $numCorrect+1; //to compute average - know what to divide by
-            $correct += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"]; //add response time to compute average
+            $numCorrect = $timeout ? $numCorrect : $numCorrect+1; //to compute average - know what to divide by
+            $correct += $timeout ? 0 : $_GET[$i."_time"]; //add response time to compute average
             $questions[$i]["correct"] = "true";   
             $score++;
         } else {
-            $numWrong = $_GET[$i."_time"] > 2000 ? $numWrong : $numWrong+1; //to compute average - know what to divide by
-            $wrong += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"]; //add response time to compute average
+            $numWrong = $timeout ? $numWrong : $numWrong+1; //to compute average - know what to divide by
+            $wrong += $timeout ? 0 : $_GET[$i."_time"]; //add response time to compute average
             $questions[$i]["correct"] = "false";   
         }
-        $questions[$i]["response time"] = $_GET[$i."_time"] > 2000 ? "0ms" : $_GET[$i."_time"]."ms";
-        $total += $_GET[$i."_time"] > 2000 ? 0 : $_GET[$i."_time"];
-        $totalNum = $_GET[$i."_time"] > 2000 ? $totalNum : $totalNum+1;
+        $questions[$i]["response time"] = $timeout ? "0ms" : $_GET[$i."_time"]."ms";
+        $total += $timeout ? 0 : $_GET[$i."_time"];
+        $totalNum = $timeout ? $totalNum : $totalNum+1;
     }
     $avgCorrect = round($correct/$numCorrect, 2);
     $avgWrong = round($wrong/$numWrong, 2);
