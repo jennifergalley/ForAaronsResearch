@@ -74,6 +74,7 @@
             alert ("survived");
             //get index of response (goes up half as fast as i)
             var j = Math.floor((i+1)/2);
+            alert ("cookie");
             setCookie("response"+j, keycode, 1); //save response
             alert ("blocks");
             if (b == blocks && j == numberQuestions[blocks-1]) {
