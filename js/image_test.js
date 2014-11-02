@@ -65,7 +65,9 @@
         var keycode = getResponse ();
         var i = geti ();
         var b = getBlock();
-        if (document.getElementById("pause").style.display == "block" && keycode == 13) {
+        var pause = document.getElementById("pause");
+        if (pause.offsetParent !== null && keycode == 13) {
+            alert ("paused");
             increment ("block", b);
             setCookie ("elem", 1, 1);
         } else {
@@ -73,6 +75,7 @@
             var j = Math.floor((i+1)/2);
             setCookie("response"+j, keycode, 1); //save response
             if (b == blocks && j == numberQuestions[blocks-1]) {
+                alert ("Saving");
                 var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
                 for (k=1; k <= total; k++) {
                     url += k+"="+getCookie("response"+k)+"&";
@@ -80,6 +83,7 @@
                 window.location = url;
             }
             if (j == numberQuestions[b-1]) {
+                alert ("pausing");
                 showPause();
                 return;
             }
