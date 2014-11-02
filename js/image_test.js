@@ -71,6 +71,7 @@
             increment ("block", b);
             setCookie ("elem", 1, 1);
         } else {
+            alert ("survived");
             //get index of response (goes up half as fast as i)
             var j = Math.floor((i+1)/2);
             setCookie("response"+j, keycode, 1); //save response
