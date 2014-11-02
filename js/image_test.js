@@ -24,6 +24,7 @@
         setTimeout(function() {
             var i = geti ();
             var b = getBlock();
+            alert (i);
             hide ("base"); //hide base image
             show (b+"."+i); //show
             hideElem2(); //hide
