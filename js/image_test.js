@@ -75,6 +75,7 @@
             //get index of response (goes up half as fast as i)
             var j = Math.floor((i+1)/2);
             setCookie("response"+j, keycode, 1); //save response
+            alert ("blocks");
             if (b == blocks && j == numberQuestions[blocks-1]) {
                 alert ("Saving");
                 var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
@@ -83,11 +84,13 @@
                 }
                 window.location = url;
             }
+            alert ("num");
             if (j == numberQuestions[b-1]) {
                 alert ("pausing");
                 showPause();
                 return;
             }
+            alert ("none");
             increment ("elem", i); //increment i 
         }
         showElem1(); //show
