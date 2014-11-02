@@ -63,12 +63,12 @@
         foreach ($block as $b => $question) : ?>
     
         <!-- First Image -->
-        <div id="<?php echo $b.$i++; ?>" style="display:none">
+        <div id="<?php echo $b.".".$i++; ?>" style="display:none">
             <img class="test" src="<?php echo $imageURL.$question["first"];?>">
         </div>
         
         <!-- Second Image -->
-        <div id="<?php echo $b.$i++; ?>" style="display:none">
+        <div id="<?php echo $b.".".$i++; ?>" style="display:none">
             <img class="test" src="<?php echo $imageURL.$question["second"];?>">
         </div>
 
