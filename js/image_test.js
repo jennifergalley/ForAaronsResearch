@@ -15,7 +15,7 @@
             var b = getBlock();
             show ("base"); //show base image
             hide (b+"."+i); //hide 
-            increment ("elem", i); //increment i
+            increment ("elem", (+i)); //increment i
             showElem2(); //show
         }, 100); //wait 100 ms, then hide elem1
     }
@@ -69,7 +69,7 @@
         var pause = document.getElementById("pause");
         if (pause.offsetParent !== null && keycode == 13) {
             alert ("paused");
-            increment ("block", +b);
+            increment ("block", (+b));
             setCookie ("elem", 1, 1);
         } else {
             //get index of response (goes up half as fast as i)
@@ -88,7 +88,7 @@
                 showPause();
                 return;
             }
-            increment ("elem", i); //increment i 
+            increment ("elem", (+i)); //increment i 
         }
         showElem1(); //show
     }
