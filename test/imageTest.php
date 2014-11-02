@@ -58,9 +58,9 @@
 
 <?php 
     //Populate Questions
-    foreach ($test["Block"] as $block) :
+    foreach ($test["Block"] as $b => $block) :
         $i = 1;
-        foreach ($block as $b => $question) : ?>
+        foreach ($block as $question) : ?>
     
         <!-- First Image -->
         <div id="<?php echo $b.".".$i++; ?>" style="display:none">
