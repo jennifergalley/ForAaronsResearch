@@ -88,7 +88,7 @@
 
 <!-- Specialized Variables -->
 <script type="text/javascript">
-    var blocks = "<?php echo count($test["Block"]); ?>";
+    var blocks = <?php echo count($test["Block"]); ?>;
     var numberQuestions = [<?php 
         $arr = "";
         foreach ($test["Block"] as $block) {
