@@ -2,8 +2,9 @@
     function showElem1 () {
         setTimeout(function() {
             var i = geti ();
+            var b = getBlock();
             hide ("base"); //hide base image
-            show (i); //show
+            show ((b*10)+i); //show
             hideElem1(); //hide
         }, 200);
     }
@@ -11,9 +12,10 @@
     function hideElem1 () {
         setTimeout(function(){
             var i = geti ();
+            var b = getBlock();
             show ("base"); //show base image
-            hide (i); //hide 
-            increment (i); //increment i
+            hide ((b*10)+i); //hide 
+            increment ('elem', i); //increment i
             showElem2(); //show
         }, 100); //wait 100 ms, then hide elem1
     }
@@ -21,8 +23,9 @@
     function showElem2 () {
         setTimeout(function() {
             var i = geti ();
+            var b = getBlock();
             hide ("base"); //hide base image
-            show (i); //show
+            show ((b*10)+i); //show
             hideElem2(); //hide
         }, 900);
     }
@@ -31,7 +34,8 @@
     function hideElem2 () {
        myTimeout = setTimeout(function() {
             var i = geti ();
-            hide (i); //hide
+            var b = getBlock();
+            hide ((b*10)+i); //hide
             showPrompt();
         }, 2000); //wait 2 sec, then hide elem2
     }
@@ -50,25 +54,41 @@
         disallowResponses(); //disallow responses now
     }
     
+    function showPause () {
+        show ("pause");
+        allowResponses();
+    }
+    
     function response (e) {
         hidePrompt ();
         clearTimeout (myTimeout); //if they interrupted the hideElem2 fxn, don't mess up other timeouts
         var keycode = getResponse ();
         var i = geti ();
-        //get index of response (goes up half as fast as i)
-        var j = Math.floor((i+1)/2);
-        setCookie("response"+j, keycode, 1); //save response
-        if (j == numberQuestions) {
-            var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
-            for (k=1; k <= numberQuestions; k++) {
-                url += k+"="+getCookie("response"+k)+"&";
+        var b = getBlock();
+        if (document.getElementById("pause").style.display == "block" && keycode == 13) {
+            increment ("block", b);
+            setCookie ("elem", 1, 1);
+        } else {
+            //get index of response (goes up half as fast as i)
+            var j = Math.floor((i+1)/2);
+            setCookie("response"+j, keycode, 1); //save response
+            if (b == blocks && j == numberQuestions[blocks-1]) {
+                var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
+                for (k=1; k <= total; k++) {
+                    url += k+"="+getCookie("response"+k)+"&";
+                }
+                window.location = url;
             }
-            window.location = url;
-        } 
-        increment (i); //increment i
+            if (j == numberQuestions[b-1]) {
+                showPause();
+                return;
+            }
+            increment ("elem", i); //increment i 
+        }
         showElem1(); //show
     }
 
     setCookie ("elem", 1, 1); //set i initially to 1
+    setCookie ("block", 1, 1); //set block initially to 1
     showElem1 (); //show
     

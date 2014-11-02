@@ -49,8 +49,14 @@
         return i;
     }
     
-    function increment (i) {
-        setCookie ("elem", i+1, 1); //increment i
+    function getBlock () {
+        var i = getCookie("block"); //get block
+        i = +i; //convert to int
+        return i;
+    }
+    
+    function increment (c, i) {
+        setCookie (c, i+1, 1); //increment i
     }
     
     function allowResponses () {

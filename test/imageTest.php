@@ -58,20 +58,22 @@
 
 <?php 
     //Populate Questions
-    $i = 1;
-    foreach ($test["Questions"] as $question) : ?>
+    foreach ($test["Block"] as $block) :
+        $i = 1;
+        foreach ($block as $b => $question) : ?>
     
-<!-- First Image -->
-<div id="<?php echo $i++; ?>" style="display:none">
-    <img class="test" src="<?php echo $imageURL.$question["first"];?>">
-</div>
+        <!-- First Image -->
+        <div id="<?php echo $b.$i++; ?>" style="display:none">
+            <img class="test" src="<?php echo $imageURL.$question["first"];?>">
+        </div>
+        
+        <!-- Second Image -->
+        <div id="<?php echo $b.$i++; ?>" style="display:none">
+            <img class="test" src="<?php echo $imageURL.$question["second"];?>">
+        </div>
 
-<!-- Second Image -->
-<div id="<?php echo $i++; ?>" style="display:none">
-    <img class="test" src="<?php echo $imageURL.$question["second"];?>">
-</div>
-
-<?php endforeach; ?>
+<?php endforeach; 
+    endforeach; ?>
 
 <!-- Prompt -->
 <div id="prompt" style="display:none">
@@ -79,9 +81,29 @@
     <h1>&lt;&lt; YES | NO &gt;&gt;</h1>
 </div>
 
+<!-- Pause -->
+<div id="pause" style="display:none">
+    <h1>Press enter to continue</h1>
+</div>
+
 <!-- Specialized Variables -->
 <script type="text/javascript">
-    var numberQuestions = "<?php echo count($test['Questions']); ?>";
+    var blocks = "<?php echo count($test["Block"]); ?>";
+    var numberQuestions = [<?php 
+        $arr = "";
+        foreach ($test["Block"] as $block) {
+            $arr .= count($block).",";
+        }
+        $arr = rtrim ($arr, ",");
+        echo $arr;
+    ?>];
+    var total = <?php 
+        $num = 0;
+        foreach ($test["Block"] as $block) {
+            $num += count($block);
+        }
+        echo $num;
+    ?>;
     var participant = "<?php echo $_POST['name']; ?>";
     var testVersion = "<?php echo $_POST['version']; ?>";
 </script>
