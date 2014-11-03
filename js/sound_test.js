@@ -33,7 +33,7 @@
         }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
-    function pause () {
+    function pauseBtwn () {
         alert("pause");
         setTimeout(function() {
             startAgain();
@@ -80,10 +80,8 @@
                 }
             }
         }
-        alert ("increment");
         increment ("elem", (+i)); //increment i
-        alert ("between");
-        pause();
+        pauseBtwn ();
     }
     
     var start, end;

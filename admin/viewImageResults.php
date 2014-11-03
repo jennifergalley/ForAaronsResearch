@@ -77,6 +77,7 @@
         </tr>
     <?php 
         $i = 1;
+        echo "hellow";
         foreach ($tests[$r["test version"]]["Block"] as $b => $block) :
             echo "hello";
             $num = count($block);
