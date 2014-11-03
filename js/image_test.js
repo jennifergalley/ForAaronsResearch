@@ -67,23 +67,26 @@
         var b = getBlock();
         var pause = document.getElementById("pause");
         if (pause.offsetParent !== null && keycode == 13) {
-            alert ("paused");
             increment ("block", (+b));
             setCookie ("elem", 1, 1);
+            hide ("pause");
         } else {
             //get index of response (goes up half as fast as i)
             var j = Math.floor(((+i)+1)/2);
-            setCookie("response"+j, keycode, 1); //save response
+            setCookie("response."+b+"."+i, keycode, 1); //save response
             if ((+b) == blocks && j == numberQuestions[blocks-1]) {
                 alert ("Saving");
                 var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
-                for (k=1; k <= total; k++) {
-                    url += k+"="+getCookie("response"+k)+"&";
+                var f = 1;
+                for (k=1; k <= blocks; k++) {
+                    for (h=1; h <= numberQuestions[k]; h++) {
+                        url += f+"="+getCookie("response."+k+"."+h)+"&";
+                        f++;
+                    }
                 }
                 window.location = url;
             }
             if (j == numberQuestions[b-1]) {
-                alert ("pausing");
                 showPause();
                 return;
             }
