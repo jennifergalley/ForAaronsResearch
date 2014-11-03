@@ -73,12 +73,12 @@
         } else {
             //get index of response (goes up half as fast as i)
             var j = Math.floor(((+i)+1)/2);
-            setCookie("response."+b+"."+i, keycode, 1); //save response
+            setCookie("response."+b+"."+j, keycode, 1); //save response
             if ((+b) == blocks && j == numberQuestions[blocks-1]) {
                 var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
                 var f = 1;
                 for (k=1; k <= blocks; k++) {
-                    for (h=1; h <= numberQuestions[k]; h++) {
+                    for (h=1; h <= (numberQuestions[k])/2; h++) {
                         url += f+"="+getCookie("response."+k+"."+h)+"&";
                         f++;
                     }
