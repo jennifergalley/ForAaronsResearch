@@ -77,12 +77,10 @@
         </tr>
     <?php 
         $i = 1;
-        echo "hellow";
-        foreach ($tests[$r["test version"]]["Block"] as $b => $block) :
-            echo "hello";
+        $index = intval($r["test version"]);
+        foreach ($tests[$index]["Block"] as $b => $block) :
             $num = count($block);
             for ($j = 1; $j <= $num; $j++) : 
-                echo "world";
                 $question = $r["Questions"][$i]; ?>
                 <tr>
                     <td><?php echo $b; ?></td>
