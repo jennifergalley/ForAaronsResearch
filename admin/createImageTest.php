@@ -9,8 +9,9 @@
     
     redirectToLogin();
     
-    if (!empty($_POST['questions'])) {
-        $_SESSION['questions'] = $_POST['questions'];
+    if (!empty($_POST['trials'])) {
+        $_SESSION['trials'] = $_POST['trials'];
+        $_SESSION['blocks'] = $_POST['blocks'];
         if ($_POST['version'] > $count) {
             $_SESSION['version'] = $_POST['version'];
         } else {
@@ -20,19 +21,25 @@
         $json = decodeJSON($imageTests);
         $test = array ();
         $test["Date"] = date("m-d-y h:i:s a");
-        $questions = array ();
+        $blocks = array ();
         $correct = array ();
-        for ($i=0; $i<$_SESSION['questions']; $i++) {
-            $index = $i+1;
-            $first = $_POST['first'.$i];
-            $second = $_POST['second'.$i];
-            $questions["$index"] = array (
-                "first" => $first,
-                "second" => $second
-            );
-            $correct["$index"] = $_POST['correct'.$i];
+        $b = 1; $c = 1;
+        for ($j=0; $j<$_SESSION['blocks']; $j++) {
+            $trials = array ();
+            for ($i=0; $i<$_SESSION['trials']; $i++) {
+                $index = $i+1;
+                $first = $_POST['first.'.$j.".".$i];
+                $second = $_POST['second.'.$j.".".$i];
+                $trials["$index"] = array (
+                    "first" => $first,
+                    "second" => $second
+                );
+                $correct["$c"] = $_POST['correct.'.$j.".".$i];
+                $c++;
+            }
+            $blocks[$b++] = $trials;
         }
-        $test["Questions"] = $questions;
+        $test["Block"] = $blocks;
         $test["Right Answers"] = $correct;
         $json[$_SESSION['version']] = $test;
         encodeJSON ($imageTests, $json);
@@ -50,12 +57,16 @@
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table class='form'>
             <tr>
-                <td><label for="version">Test Block (must be unique):</label></td>
+                <td><label for="version">Test Version (must be unique):</label></td>
                 <td><input required type="number" name="version" value="<?php echo $count+1; ?>"></td>
             </tr>
             <tr>
-                <td><label for="questions">Number of trials:</label></td>
-                <td><input required type="number" name="questions"></td>
+                <td><label for="questions">Number of blocks:</label></td>
+                <td><input required type="number" name="blocks"></td>
+            </tr>
+            <tr>
+                <td><label for="questions">Number of trials per block:</label></td>
+                <td><input required type="number" name="trials"></td>
             </tr>
         </table>
         <input type="submit" name="continue" value="Continue">
@@ -63,46 +74,49 @@
 <?php else: ?>
     <!-- Generate Test Form -->
     <form method="post" action="<?php echo $upload_url; ?>" enctype="multipart/form-data">
+        <?php for ($k=0; $k < $_SESSION['blocks']; $k++) : ?>
+            <h2>Block <?php echo $k+1; ?></h2>
         <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
-        <h2>Trial <?php echo $i+1; ?></h2>
-        <table class='form'>
-            <tr>
-                <!-- First Image -->
-                <td><label for="<?php echo 'first'.$i; ?>">First Image:</label></td>
-            </tr>
-            <tr>
-            <?php $j = 0;
-                if ($handle = opendir('gs://aarons-tests/images/')) {
-                    while (false !== ($entry = readdir($handle))) : 
-                        $j++;
-                        $pic = $imageURL.$entry; ?>
-                <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($j % 6 == 0) echo "</tr><tr>"; 
-                    endwhile;
-                    closedir($handle);
-                } ?>
-            <tr>
-                <!-- Second Image -->
-                <td><label for="<?php echo 'second'.$i; ?>">Second Image:</label></td>
-            </tr>
-                <?php $j = 0; 
+            <h3>Trial <?php echo $i+1; ?></h3>
+            <table class='form'>
+                <tr>
+                    <!-- First Image -->
+                    <td><label for="<?php echo 'first.'.$k.".".$i; ?>">First Image:</label></td>
+                </tr>
+                <tr>
+                <?php $j = 0;
                     if ($handle = opendir('gs://aarons-tests/images/')) {
-                    while (false !== ($entry = readdir($handle))) : 
-                        $j++;
-                        $pic = $imageURL.$entry; ?>
-                <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($j % 6 == 0) echo "</tr><tr>";  
-                    endwhile;
-                    closedir($handle);
-                } ?>
-            <tr>
-                <!-- Correct Answer -->
-                <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
-                <td><input required type="radio" name="correct<?php echo $i; ?>" value="yes">True</input></td>
-                <td><input required type="radio" name="correct<?php echo $i; ?>" value="no">False</input></td>
-            </tr>
-        </table>
-        <br>
+                        while (false !== ($entry = readdir($handle))) : 
+                            $j++;
+                            $pic = $imageURL.$entry; ?>
+                    <td><input required type="radio" name="<?php echo 'first'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                    <?php if ($j % 6 == 0) echo "</tr><tr>"; 
+                        endwhile;
+                        closedir($handle);
+                    } ?>
+                <tr>
+                    <!-- Second Image -->
+                    <td><label for="<?php echo 'second.'.$k.".".$i; ?>">Second Image:</label></td>
+                </tr>
+                    <?php $j = 0; 
+                        if ($handle = opendir('gs://aarons-tests/images/')) {
+                        while (false !== ($entry = readdir($handle))) : 
+                            $j++;
+                            $pic = $imageURL.$entry; ?>
+                    <td><input required type="radio" name="<?php echo 'second'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                    <?php if ($j % 6 == 0) echo "</tr><tr>";  
+                        endwhile;
+                        closedir($handle);
+                    } ?>
+                <tr>
+                    <!-- Correct Answer -->
+                    <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
+                    <td><input required type="radio" name="correct.<?php echo $k.".".$i; ?>" value="yes">True</input></td>
+                    <td><input required type="radio" name="correct.<?php echo $k.".".$i; ?>" value="no">False</input></td>
+                </tr>
+            </table>
+            <br>
+            <?php endfor; ?>
         <?php endfor; ?>
         <input type="submit" name="submit" value="Submit">
     </form>
