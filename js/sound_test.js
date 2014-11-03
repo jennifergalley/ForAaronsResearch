@@ -51,16 +51,14 @@
         clearTimeout (myTimeout);
         var keycode = getResponse ();
         var i = geti (); //get i
-        hide (b+"."+i); //hide elem
         var b = getBlock();
+        hide (b+"."+i); //hide elem
         var pause = document.getElementById("pause");
-        alert ("pause");
         if (pause.offsetParent !== null && keycode == 13) {
             increment ("block", (+b));
             setCookie ("elem", 1, 1);
             hide ("pause");
         } else {
-            alert ("cookie");
             setCookie("response."+b+"."+i, keycode, 1); //save response
             setCookie("response_time."+b+"."+i, response_time, 1); //save response time
             if ((+b) == blocks && i == numberQuestions[blocks-1]) {
