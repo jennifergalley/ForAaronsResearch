@@ -29,13 +29,13 @@
             $trials = array ();
             for ($i=0; $i<$_SESSION['trials']; $i++) {
                 $index = $i+1;
-                $first = $_POST['first.'.$j.".".$i];
-                $second = $_POST['second.'.$j.".".$i];
+                $first = $_POST['first_'.$j."_".$i];
+                $second = $_POST['second_'.$j."_".$i];
                 $trials["$index"] = array (
                     "first" => $first,
                     "second" => $second
                 );
-                $correct["$c"] = $_POST['correct.'.$j.".".$i];
+                $correct["$c"] = $_POST['correct_'.$j."_".$i];
                 $c++;
             }
             $blocks[$b++] = $trials;
@@ -82,7 +82,7 @@
             <table class='form'>
                 <tr>
                     <!-- First Image -->
-                    <td><label for="<?php echo 'first.'.$k.'.'.$i; ?>">First Image:</label></td>
+                    <td><label for="<?php echo 'first_'.$k.'_'.$i; ?>">First Image:</label></td>
                 </tr>
                 <tr>
                 <?php $j = 0;
@@ -90,21 +90,21 @@
                         while (false !== ($entry = readdir($handle))) : 
                             $j++;
                             $pic = $imageURL.$entry; ?>
-                    <td><input required type="radio" name="<?php echo 'first.'.$k.'.'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                    <td><input required type="radio" name="<?php echo 'first_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
                     <?php if ($j % 6 == 0) echo "</tr><tr>"; 
                         endwhile;
                         closedir($handle);
                     } ?>
                 <tr>
                     <!-- Second Image -->
-                    <td><label for="<?php echo 'second.'.$k.'.'.$i; ?>">Second Image:</label></td>
+                    <td><label for="<?php echo 'second_'.$k.'_'.$i; ?>">Second Image:</label></td>
                 </tr>
                     <?php $j = 0; 
                         if ($handle = opendir('gs://aarons-tests/images/')) {
                         while (false !== ($entry = readdir($handle))) : 
                             $j++;
                             $pic = $imageURL.$entry; ?>
-                    <td><input required type="radio" name="<?php echo 'second.'.$k.'.'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                    <td><input required type="radio" name="<?php echo 'second_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
                     <?php if ($j % 6 == 0) echo "</tr><tr>";  
                         endwhile;
                         closedir($handle);
@@ -112,8 +112,8 @@
                 <tr>
                     <!-- Correct Answer -->
                     <td><label for="correct<?php echo $i; ?>">Correct Answer:</label></td>
-                    <td><input required type="radio" name="correct.<?php echo $k.'.'.$i; ?>" value="yes">True</input></td>
-                    <td><input required type="radio" name="correct.<?php echo $k.'.'.$i; ?>" value="no">False</input></td>
+                    <td><input required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="yes">True</input></td>
+                    <td><input required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="no">False</input></td>
                 </tr>
             </table>
             <br>
