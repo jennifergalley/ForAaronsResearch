@@ -76,6 +76,7 @@
             <td><?php echo $t["Right Answers"][$num] == "yes" ? "True" : "False"; ?></td>
         </tr>
         <?php endforeach; ?>
+        <?php endforeach; ?>
     </table>
 <?php 
     endif;
