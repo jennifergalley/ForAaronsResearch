@@ -21,7 +21,7 @@
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <table class='form'>
             <tr>
-                <td><label for="version">Test Block:</label></td>
+                <td><label for="version">Test Version:</label></td>
                 <td><select required name="version">
                     <?php foreach ($test as $num => $test) : ?>
                         <option value="<?php echo $num; ?>"><?php echo $num; ?></option>
@@ -98,7 +98,8 @@
                 echo '"'.$question['tone'].'"';
                 if (array_key_exists($i+1, $block)) echo ", ";
                 $i++;
-            } 
+            }
+            if (array_key_exists ($j+1, $test["Block"])) echo ", ";
         }
     ?> ];
 </script>
