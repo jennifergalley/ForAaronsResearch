@@ -5,7 +5,6 @@
     
     var myTimeout;
     function showElem1 () {
-        alert ("show elem1");
         setTimeout(function() {
             var i = geti (); //get i
             var b = getBlock();
@@ -29,15 +28,14 @@
     function startAgain () {
         show("base");
         setTimeout(function() {
-            alert("start again");
             hide ("base"); //hide base image
             showElem1();
         }, 500); //half a second between image + tone trials - ask aaron about this delay
     }
     
     function pause () {
+        alert("pause");
         setTimeout(function() {
-            alert("pause");
             startAgain();
         }, 1000); //wait 1 second
     }
@@ -82,7 +80,9 @@
                 }
             }
         }
+        alert ("increment");
         increment ("elem", (+i)); //increment i
+        alert ("between");
         pause();
     }
     
