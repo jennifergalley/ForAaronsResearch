@@ -59,8 +59,10 @@
             setCookie ("elem", 1, 1);
             hide ("pause");
         } else {
+            alert ("cookie");
             setCookie("response."+b+"."+i, keycode, 1); //save response
             setCookie("response_time."+b+"."+i, response_time, 1); //save response time
+            alert ("bleh");
             if ((+b) == blocks && i == numberQuestions[blocks-1]) {
                 var url = "../results/saveSoundResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
                 var f = 1;
@@ -79,6 +81,7 @@
                 }
             }
         }
+        alert ("increment");
         increment ("elem", (+i)); //increment i
         pause();
     }

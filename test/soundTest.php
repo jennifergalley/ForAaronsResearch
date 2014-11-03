@@ -100,6 +100,7 @@
                 $i++;
             }
             if (array_key_exists ($j+1, $test["Block"])) echo ", ";
+            $j++;
         }
     ?> ];
 </script>
