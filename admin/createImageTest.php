@@ -76,7 +76,7 @@
     <form method="post" action="<?php echo $upload_url; ?>" enctype="multipart/form-data">
         <?php for ($k=0; $k < $_SESSION['blocks']; $k++) : ?>
             <h2>Block <?php echo $k+1; ?></h2>
-        <?php for ($i=0; $i < $_SESSION['questions']; $i++) : ?>
+        <?php for ($i=0; $i < $_SESSION['trials']; $i++) : ?>
             <h3>Trial <?php echo $i+1; ?></h3>
             <table class='form'>
                 <tr>
