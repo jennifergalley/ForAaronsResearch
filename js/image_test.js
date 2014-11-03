@@ -78,7 +78,7 @@
                 var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
                 var f = 1;
                 for (k=1; k <= blocks; k++) {
-                    for (h=1; h <= (numberQuestions[k])/2; h++) {
+                    for (h=1; h <= numberQuestions[k]; h++) {
                         url += f+"="+getCookie("response."+k+"."+h)+"&";
                         f++;
                     }
