@@ -51,7 +51,7 @@
         clearTimeout (myTimeout);
         var keycode = getResponse ();
         var i = geti (); //get i
-        hide (+i); //hide elem
+        hide ((+i)); //hide elem
         var b = getBlock();
         var pause = document.getElementById("pause");
         if (pause.offsetParent !== null && keycode == 13) {
