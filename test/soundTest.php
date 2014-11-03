@@ -59,29 +59,47 @@
     <img class="test" src="<?php echo $imageURL.'dot.jpg';?>">
 </div>
 
+<!-- Pause -->
+<div id="pause" style="display:none">
+    <h1>Press enter to continue</h1>
+</div>
+
 <?php 
     //Populate Questions
-    $i = 1;
-    foreach ($test["Questions"] as $question) : ?>
+    foreach ($test["Block"] as $b => $block) :
+        $i = 1;
+        foreach ($block as $question) : ?>
     
-<!-- Image -->
-<div id="<?php echo $i++; ?>" style="display:none">
-    <img class="test" src="<?php echo $imageURL.$question['image'];?>">
-</div>
+        <!-- Image -->
+        <div id="<?php echo $b.".".$i++; ?>" style="display:none">
+            <img class="test" src="<?php echo $imageURL.$question['image'];?>">
+        </div>
+    <?php endforeach; ?>
 <?php endforeach; ?>
 
 <!-- Specialized Variables -->
 <script type="text/javascript">
-    var numberQuestions = "<?php echo count($test['Questions']); ?>";
+    var blocks = <?php echo count($test["Block"]); ?>;
+    var numberQuestions = [<?php 
+        $arr = "";
+        foreach ($test["Block"] as $block) {
+            $arr .= count($block).",";
+        }
+        $arr = rtrim ($arr, ",");
+        echo $arr;
+    ?>];
     var participant = "<?php echo $_POST['name']; ?>";
     var testVersion = "<?php echo $_POST['version']; ?>";
     var tones = [ <?php 
-        $i = 1; 
-        foreach ($test["Questions"] as $question) {
-            echo '"'.$question['tone'].'"';
-            if (array_key_exists($i+1, $test["Questions"])) echo ", ";
-            $i++;
-        } 
+        $j = 1;
+        foreach ($test["Block"] as $b => $block) {
+            $i = 1;
+            foreach ($block as $question) {
+                echo '"'.$question['tone'].'"';
+                if (array_key_exists($i+1, $block)) echo ", ";
+                $i++;
+            } 
+        }
     ?> ];
 </script>
 

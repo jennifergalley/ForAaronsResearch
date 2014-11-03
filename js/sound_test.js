@@ -7,17 +7,18 @@
     function showElem1 () {
         setTimeout(function() {
             var i = geti (); //get i
-            show (i); //show
+            var b = getBlock();
+            show (b+"."+i); //show
             start = +new Date ();
             allowResponses (); //only allow response on response page
             
             //play sound
-            if (tones[i-1] != "") { //if not empty
+            if (tones[j-1] != "") { //if not empty
                 setTimeout(function () { //delay tone
                     playTone(); //play tone
-                }, tones[i-1]); //delay in ms
+                }, tones[j-1]); //delay in ms
             }
-            
+            j++;
             myTimeout = setTimeout(function() { //timeout after 2 seconds, call response with null input
                 timeout ();
             }, 1000); //timeout after 1 second
@@ -38,6 +39,11 @@
         }, 1000); //wait 1 second
     }
     
+    function showPause () {
+        show ("pause");
+        allowResponses();
+    }
+    
     function response (e) {
         end = +new Date();
         var response_time = end - start;
@@ -45,22 +51,41 @@
         clearTimeout (myTimeout);
         var keycode = getResponse ();
         var i = geti (); //get i
-        hide (i); //hide elem
-        setCookie("response"+i, keycode, 1); //save response
-        setCookie("response_time"+i, response_time, 1); //save response time
-        if (i == numberQuestions) {
-            var url = "../results/saveSoundResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
-            for (k = 1; k <= numberQuestions; k++) {
-                url += k+"="+getCookie("response"+k)+"&";
-                url += k+"_time="+getCookie("response_time"+k)+"&";
+        hide (+i); //hide elem
+        var b = getBlock();
+        var pause = document.getElementById("pause");
+        if (pause.offsetParent !== null && keycode == 13) {
+            increment ("block", (+b));
+            setCookie ("elem", 1, 1);
+            hide ("pause");
+        } else {
+            setCookie("response."+b+"."+i, keycode, 1); //save response
+            setCookie("response_time."+b+"."+i, response_time, 1); //save response time
+            if ((+b) == blocks && i == numberQuestions[blocks-1]) {
+                var url = "../results/saveSoundResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
+                var f = 1;
+                for (k=1; k <= blocks; k++) {
+                    for (h=1; h <= numberQuestions[k-1]; h++) {
+                        url += f+"="+getCookie("response."+k+"."+h)+"&";
+                        url += f+"_time="+getCookie("response_time."+k+"."+h)+"&";
+                        f++;
+                    }
+                }
+                window.location = url;
+            } else {
+                if (i == numberQuestions[b-1]) {
+                    showPause();
+                    return;
+                }
             }
-            window.location = url;
-        } 
-        increment (i); //increment i
+        }
+        increment ("elem", (+i)); //increment i
         pause();
     }
     
     var start, end;
+    var j = 1;
     setCookie ("elem", 1, 1); //set i initially to 1
+    setCookie ("block", 1, 1); //set block initially to 1
     startAgain (); //show
     

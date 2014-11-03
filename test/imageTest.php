@@ -97,13 +97,6 @@
         $arr = rtrim ($arr, ",");
         echo $arr;
     ?>];
-    var total = <?php 
-        $num = 0;
-        foreach ($test["Block"] as $block) {
-            $num += count($block);
-        }
-        echo $num;
-    ?>;
     var participant = "<?php echo $_POST['name']; ?>";
     var testVersion = "<?php echo $_POST['version']; ?>";
 </script>
