@@ -78,6 +78,8 @@
     <?php 
         $i = 1;
         $index = intval($r["test version"]);
+        echo $index;
+        var_dump ($tests);
         foreach ($tests[$index]["Block"] as $b => $block) :
             $num = count($block);
             for ($j = 1; $j <= $num; $j++) : 
