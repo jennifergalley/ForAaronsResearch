@@ -78,8 +78,10 @@
     <?php 
         $i = 1;
         foreach ($tests[$r["test version"]]["Block"] as $b => $block) :
+            echo "hello";
             $num = count($block);
             for ($j = 1; $j <= $num; $j++) : 
+                echo "world";
                 $question = $r["Questions"][$i]; ?>
                 <tr>
                     <td><?php echo $b; ?></td>
