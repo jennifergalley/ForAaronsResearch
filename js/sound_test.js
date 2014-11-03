@@ -5,6 +5,7 @@
     
     var myTimeout;
     function showElem1 () {
+        alert ("show elem1");
         setTimeout(function() {
             var i = geti (); //get i
             var b = getBlock();
@@ -28,6 +29,7 @@
     function startAgain () {
         show("base");
         setTimeout(function() {
+            alert("start again");
             hide ("base"); //hide base image
             showElem1();
         }, 500); //half a second between image + tone trials - ask aaron about this delay
@@ -35,6 +37,7 @@
     
     function pause () {
         setTimeout(function() {
+            alert("pause");
             startAgain();
         }, 1000); //wait 1 second
     }
@@ -59,10 +62,8 @@
             setCookie ("elem", 1, 1);
             hide ("pause");
         } else {
-            alert ("cookie");
             setCookie("response."+b+"."+i, keycode, 1); //save response
             setCookie("response_time."+b+"."+i, response_time, 1); //save response time
-            alert ("bleh");
             if ((+b) == blocks && i == numberQuestions[blocks-1]) {
                 var url = "../results/saveSoundResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
                 var f = 1;
@@ -81,7 +82,6 @@
                 }
             }
         }
-        alert ("increment");
         increment ("elem", (+i)); //increment i
         pause();
     }
