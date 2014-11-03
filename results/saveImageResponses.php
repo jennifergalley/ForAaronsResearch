@@ -35,5 +35,5 @@
     encodeJSON ($imageResponses, $arr);  
 ?>
 <script type="text/javascript">
-    window.location = "<?php echo $subdir.'test/imageTest.php?done';?>";
+    //window.location = "<?php echo $subdir.'test/imageTest.php?done';?>";
 </script>

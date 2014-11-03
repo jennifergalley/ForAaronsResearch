@@ -75,7 +75,6 @@
             var j = Math.floor(((+i)+1)/2);
             setCookie("response."+b+"."+i, keycode, 1); //save response
             if ((+b) == blocks && j == numberQuestions[blocks-1]) {
-                alert ("Saving");
                 var url = "../results/saveImageResponses.php?participant="+participant+"&testVersion="+testVersion+"&";
                 var f = 1;
                 for (k=1; k <= blocks; k++) {
@@ -85,10 +84,11 @@
                     }
                 }
                 window.location = url;
-            }
-            if (j == numberQuestions[b-1]) {
-                showPause();
-                return;
+            } else {
+                if (j == numberQuestions[b-1]) {
+                    showPause();
+                    return;
+                }
             }
             increment ("elem", (+i)); //increment i 
         }
