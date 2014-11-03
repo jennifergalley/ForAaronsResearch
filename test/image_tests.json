@@ -86,126 +86,126 @@
         "Block": {
             "1": {
                 "1": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2.jpg",
+                    "second": "img2_1.jpg"
                 },
                 "2": {
-                    "first": "red_left.jpg",
-                    "second": "img1.jpg"
+                    "first": "img3.jpg",
+                    "second": "img3.jpg"
                 },
                 "3": {
-                    "first": "cross_img1.png",
-                    "second": "red_right.jpg"
+                    "first": "img4_1.jpg",
+                    "second": "img4.jpg"
                 },
                 "4": {
-                    "first": "blue2.jpg",
-                    "second": "red_left.jpg"
+                    "first": "cross_img1.png",
+                    "second": "cross_img1.png"
                 },
                 "5": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2_1.jpg",
+                    "second": "img2.jpg"
                 },
                 "6": {
-                    "first": "blue_left.jpg",
-                    "second": "blue_right.jpg"
+                    "first": "img3.jpg",
+                    "second": "img3.jpg"
                 },
                 "7": {
-                    "first": "red_right.jpg",
-                    "second": "red.jpg"
+                    "first": "img3_1.jpg",
+                    "second": "img3_1.jpg"
                 },
                 "8": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2_1.jpg",
+                    "second": "img2.jpg"
                 },
                 "9": {
-                    "first": "img1.jpg",
-                    "second": "cross_img1.png"
+                    "first": "img4_1.jpg",
+                    "second": "img4_1.jpg"
                 },
                 "10": {
-                    "first": "red.jpg",
-                    "second": "red_left.jpg"
+                    "first": "img4.jpg",
+                    "second": "img4_1.jpg"
                 },
                 "11": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2_1.jpg",
+                    "second": "img2_1.jpg"
                 },
                 "12": {
                     "first": "cross_img1.png",
                     "second": "cross_img1.png"
                 },
                 "13": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img3.jpg",
+                    "second": "img3_1.jpg"
                 },
                 "14": {
-                    "first": "img1.jpg",
-                    "second": "red_right.jpg"
+                    "first": "img2_1.jpg",
+                    "second": "img2.jpg"
                 },
                 "15": {
-                    "first": "cross.png",
-                    "second": "red_left.jpg"
+                    "first": "img2.jpg",
+                    "second": "img2.jpg"
                 }
             },
             "2": {
                 "1": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2.jpg",
+                    "second": "img2_1.jpg"
                 },
                 "2": {
-                    "first": "red_left.jpg",
-                    "second": "img1.jpg"
+                    "first": "img3.jpg",
+                    "second": "img3.jpg"
                 },
                 "3": {
-                    "first": "cross_img1.png",
-                    "second": "red_right.jpg"
+                    "first": "img4_1.jpg",
+                    "second": "img4.jpg"
                 },
                 "4": {
-                    "first": "blue2.jpg",
-                    "second": "red_left.jpg"
+                    "first": "cross_img1.png",
+                    "second": "cross_img1.png"
                 },
                 "5": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2_1.jpg",
+                    "second": "img2.jpg"
                 },
                 "6": {
-                    "first": "blue_left.jpg",
-                    "second": "blue_right.jpg"
+                    "first": "img3.jpg",
+                    "second": "img3.jpg"
                 },
                 "7": {
-                    "first": "red_right.jpg",
-                    "second": "red.jpg"
+                    "first": "img3_1.jpg",
+                    "second": "img3_1.jpg"
                 },
                 "8": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2_1.jpg",
+                    "second": "img2.jpg"
                 },
                 "9": {
-                    "first": "img1.jpg",
-                    "second": "cross_img1.png"
+                    "first": "img4_1.jpg",
+                    "second": "img4_1.jpg"
                 },
                 "10": {
-                    "first": "red.jpg",
-                    "second": "red_left.jpg"
+                    "first": "img4.jpg",
+                    "second": "img4_1.jpg"
                 },
                 "11": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img2_1.jpg",
+                    "second": "img2_1.jpg"
                 },
                 "12": {
                     "first": "cross_img1.png",
                     "second": "cross_img1.png"
                 },
                 "13": {
-                    "first": "cross_img1.png",
-                    "second": "cross_img1.png"
+                    "first": "img3.jpg",
+                    "second": "img3_1.jpg"
                 },
                 "14": {
-                    "first": "img1.jpg",
-                    "second": "red_right.jpg"
+                    "first": "img2_1.jpg",
+                    "second": "img2.jpg"
                 },
                 "15": {
-                    "first": "cross.png",
-                    "second": "red_left.jpg"
+                    "first": "img2.jpg",
+                    "second": "img2.jpg"
                 }
             }
         },

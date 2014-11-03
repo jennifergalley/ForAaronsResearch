@@ -4,7 +4,6 @@
             var i = geti ();
             var b = getBlock();
             hide ("base"); //hide base image
-            alert (b+"."+i);
             show (b+"."+i); //show
             hideElem1(); //hide
         }, 200);
@@ -15,7 +14,6 @@
             var i = geti ();
             var b = getBlock();
             show ("base"); //show base image
-            hide (b+"."+i); //hide 
             increment ("elem", (+i)); //increment i
             showElem2(); //show
         }, 100); //wait 100 ms, then hide elem1
@@ -26,7 +24,6 @@
             var i = geti ();
             var b = getBlock();
             hide ("base"); //hide base image
-            alert (b+"."+i);
             show (b+"."+i); //show
             hideElem2(); //hide
         }, 900);
