@@ -14,7 +14,8 @@
         
 <h1>Participant Results</h1>
 
-<?php $results = decodeJSON($imageResponses); ?>
+<?php $results = decodeJSON($imageResponses); 
+   $tests = decodeJSON ($imageTests); ?>
 
 <?php if (!isset($_GET['id'])) : ?>
     <?php foreach ($results as $id => $r) : ?>
@@ -24,7 +25,7 @@
             <td><?php echo $r["participant"]; ?></td>
         </tr>
         <tr>
-            <td><b>Test Block</b></td>
+            <td><b>Test Version</b></td>
             <td><?php echo $r["test version"]; ?></td>
         </tr>
         <tr>
@@ -54,7 +55,7 @@
             <td><?php echo $r["Score"]; ?></td>
         </tr>
         <tr>
-            <td><b>Test Block</b></td>
+            <td><b>Test Version</b></td>
             <td><?php echo $r["test version"]; ?></td>
         </tr>
         <tr>
@@ -69,18 +70,24 @@
     </table>
     <table class='view'>
         <tr>
+            <th>Block</th>
             <th>Trial</th>
             <th>Response</th>
             <th>Correct?</th>
         </tr>
     <?php 
         $i = 1;
-        foreach ($r["Questions"] as $question) : ?>
-            <tr>
-                <td><?php echo $i++; ?></td>
-                <td><?php echo $question["answer"]; ?></td>
-                <td><?php echo $question["correct"]; ?></td>
-            </tr>
+        foreach ($tests[$r["test version"]]["Block"] as $b => $block) :
+            $num = count($block);
+            for ($j = 1; $j <= $num; $j++) : 
+                $question = $r["Questions"][$i]; ?>
+                <tr>
+                    <td><?php echo $b; ?></td>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $question["answer"]; ?></td>
+                    <td><?php echo $question["correct"]; ?></td>
+                </tr>
+            <?php endfor; ?>
         <?php endforeach; ?>
     </table>
 <?php

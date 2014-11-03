@@ -14,7 +14,8 @@
  
 <h1>Participant Results</h1>
 
-<?php $results = decodeJSON($soundResponses); ?>
+<?php $results = decodeJSON($soundResponses); 
+   $tests = decodeJSON ($imageTests); ?>
 <?php if (!isset($_GET['id'])) : ?>
     <?php foreach ($results as $id => $r) : ?>
     <table class='view'>
@@ -68,6 +69,7 @@
     </table>
     <table class='view'>
         <tr>
+            <th>Block</th>
             <th>Trial</th>
             <th>Response</th>
             <th>Correct?</th>
@@ -75,13 +77,18 @@
         </tr>
     <?php 
         $i = 1;
-        foreach ($r["Questions"] as $question) : ?>
-            <tr>
-                <td><?php echo $i++; ?></td>
-                <td><?php echo ucwords($question["answer"]); ?></td>
-                <td><?php echo ucwords($question["correct"]); ?></td>
-                <td><?php echo ucwords($question["response time"]); ?></td>
-            </tr>
+        foreach ($tests[$r["test version"]]["Block"] as $b => $block) :
+            $num = count($block);
+            for ($j = 1; $j <= $num; $j++) : 
+                $question = $r["Questions"][$i]; ?>
+                <tr>
+                    <td><?php echo $b; ?></td>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo ucwords($question["answer"]); ?></td>
+                    <td><?php echo ucwords($question["correct"]); ?></td>
+                    <td><?php echo ucwords($question["response time"]); ?></td>
+                </tr>
+            <?php endfor; ?>
         <?php endforeach; ?>
     </table>
     <table class="view">

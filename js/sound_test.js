@@ -47,16 +47,11 @@
     function response (e) {
         end = +new Date();
         var response_time = end - start;
-        alert ("response time");
         disallowResponses (); //only allow response on response page
-        alert ("timeout");
         clearTimeout (myTimeout);
-        alert ("btwn");
         var keycode = getResponse ();
-        alert ("keycode");
         var i = geti (); //get i
-        alert ("i");
-        hide ((+i)); //hide elem
+        hide (b+"."+i); //hide elem
         var b = getBlock();
         var pause = document.getElementById("pause");
         alert ("pause");

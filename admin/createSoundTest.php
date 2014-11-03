@@ -23,7 +23,7 @@
         $test["Date"] = date("m-d-y h:i:s a");
         $questions = array ();
         $correct = array ();
-        $b = 1;
+        $b = 1; $k = 0;
         for ($j=0; $j<$_SESSION['blocks']; $j++) {
             $trials = array ();
             for ($i=0; $i<$_SESSION['trials']; $i++) {
@@ -31,7 +31,7 @@
                 $image = $_POST['image_'.$j."_".$i];
                 $questions["$index"] = array (
                     "image" => $image,
-                    "tone" => $_POST['tone'][$j][$i]
+                    "tone" => $_POST['tone'][$k++]
                 );
                 $correct["$index"] = $_POST['correct_'.$j."_".$i];
             }

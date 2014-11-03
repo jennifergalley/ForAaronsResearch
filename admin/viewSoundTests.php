@@ -60,18 +60,21 @@
     </table>
     <table class='view'>
         <tr>
+            <th>Block</th>
             <th>Trial</th>
             <th>First Image</th>
             <th>Tone</th>
             <th>Right Answer</th>
         </tr>
-        <?php foreach ($t["Questions"] as $num => $question) : ?>
+        <?php foreach ($t["Block"] as $num => $trials) : 
+            foreach ($trials as $n =>$question) : ?>
         <tr>
             <td><?php echo $num; ?></td>
             <td><?php echo $question["image"]; ?></td>
             <td><?php echo !empty($question["tone"]) ? $question["tone"]."ms" : "None"; ?></td>
             <td><?php echo ucwords($t["Right Answers"][$num]); ?></td>
         </tr>
+        <?php endforeach; ?>
         <?php endforeach; ?>
     </table>
 <?php    
