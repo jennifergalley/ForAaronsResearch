@@ -51,7 +51,7 @@
 
 <h1>Generate Image Test</h1>
 
-<?php if (empty($_POST['questions']) or !empty($error)): 
+<?php if (empty($_POST['trials']) or !empty($error)): 
     displayError(); ?>
     <!-- Test Block & Number Trials -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
