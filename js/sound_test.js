@@ -18,7 +18,7 @@
                     playTone(); //play tone
                 }, tones[j-1]); //delay in ms
             }
-            j++;
+            j = j+1;
             myTimeout = setTimeout(function() { //timeout after 2 seconds, call response with null input
                 timeout ();
             }, 1000); //timeout after 1 second
