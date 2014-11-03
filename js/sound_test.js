@@ -19,6 +19,7 @@
                 }, tones[j-1]); //delay in ms
             }
             j = j+1;
+            alert ("j");
             myTimeout = setTimeout(function() { //timeout after 2 seconds, call response with null input
                 timeout ();
             }, 1000); //timeout after 1 second
@@ -45,6 +46,7 @@
     }
     
     function response (e) {
+        alert ("response");
         end = +new Date();
         var response_time = end - start;
         disallowResponses (); //only allow response on response page
@@ -54,11 +56,13 @@
         hide ((+i)); //hide elem
         var b = getBlock();
         var pause = document.getElementById("pause");
+        alert ("pause");
         if (pause.offsetParent !== null && keycode == 13) {
             increment ("block", (+b));
             setCookie ("elem", 1, 1);
             hide ("pause");
         } else {
+            alert ("cookie");
             setCookie("response."+b+"."+i, keycode, 1); //save response
             setCookie("response_time."+b+"."+i, response_time, 1); //save response time
             if ((+b) == blocks && i == numberQuestions[blocks-1]) {
