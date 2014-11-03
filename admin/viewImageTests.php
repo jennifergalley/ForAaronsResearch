@@ -60,14 +60,17 @@
     </table>
     <table class='view'>
         <tr>
+            <th>Block</th>
             <th>Trial</th>
             <th>First Image</th>
             <th>Second Image</th>
             <th>Right Answer</th>
         </tr>
-        <?php foreach ($t["Questions"] as $num => $question) : ?>
-        <tr>
+        <?php foreach ($t["Block"] as $num => $trials) : 
+            foreach ($trials as $n =>$question) : ?>
+        <tr> 
             <td><?php echo $num; ?></td>
+            <td><?php echo $n; ?></td>
             <td><?php echo $question["first"]; ?></td>
             <td><?php echo $question["second"]; ?></td>
             <td><?php echo $t["Right Answers"][$num] == "yes" ? "True" : "False"; ?></td>
