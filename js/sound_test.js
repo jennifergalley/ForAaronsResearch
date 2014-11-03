@@ -19,7 +19,6 @@
                 }, tones[j-1]); //delay in ms
             }
             j = j+1;
-            alert ("j");
             myTimeout = setTimeout(function() { //timeout after 2 seconds, call response with null input
                 timeout ();
             }, 1000); //timeout after 1 second
@@ -46,13 +45,17 @@
     }
     
     function response (e) {
-        alert ("response");
         end = +new Date();
         var response_time = end - start;
+        alert ("response time");
         disallowResponses (); //only allow response on response page
+        alert ("timeout");
         clearTimeout (myTimeout);
+        alert ("btwn");
         var keycode = getResponse ();
+        alert ("keycode");
         var i = geti (); //get i
+        alert ("i");
         hide ((+i)); //hide elem
         var b = getBlock();
         var pause = document.getElementById("pause");
