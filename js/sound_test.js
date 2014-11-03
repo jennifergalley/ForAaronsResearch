@@ -34,7 +34,6 @@
     }
     
     function pauseBtwn () {
-        alert("pause");
         setTimeout(function() {
             startAgain();
         }, 1000); //wait 1 second
