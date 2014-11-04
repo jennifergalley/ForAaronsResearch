@@ -9,7 +9,7 @@
     
     redirectToLogin();
     
-    if (!empty($_POST['questions'])) {
+    if (!empty($_POST['trials'])) {
         $_SESSION['trials'] = $_POST['trials'];
         $_SESSION['blocks'] = $_POST['blocks'];
         if ($_POST['version'] > $count) {
@@ -21,7 +21,8 @@
         $json = decodeJSON($soundTests);
         $test = array ();
         $test["Date"] = date("m-d-y h:i:s a");
-        $questions = array ();
+        $blocks = array ();
+        $trials = array ();
         $correct = array ();
         $b = 1; $k = 0;
         for ($j=0; $j<$_SESSION['blocks']; $j++) {
@@ -29,7 +30,7 @@
             for ($i=0; $i<$_SESSION['trials']; $i++) {
                 $index = $i + 1;
                 $image = $_POST['image_'.$j."_".$i];
-                $questions["$index"] = array (
+                $trials["$index"] = array (
                     "image" => $image,
                     "tone" => $_POST['tone'][$k++]
                 );
@@ -51,7 +52,7 @@
 
 <h1>Generate Sound Test</h1>
 
-<?php if (empty($_POST['questions']) or !empty($error)): 
+<?php if (empty($_POST['trials']) or !empty($error)): 
     displayError(); ?>
     <!-- Test Block & Number Trials -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -61,11 +62,11 @@
                 <td><input required type="number" name="version" value="<?php echo $count+1; ?>"></td>
             </tr>
             <tr>
-                <td><label for="questions">Number of blocks:</label></td>
+                <td><label for="blocks">Number of blocks:</label></td>
                 <td><input required type="number" name="blocks"></td>
             </tr>
             <tr>
-                <td><label for="questions">Number of trials per block:</label></td>
+                <td><label for="trials">Number of trials per block:</label></td>
                 <td><input required type="number" name="trials"></td>
             </tr>
         </table>
