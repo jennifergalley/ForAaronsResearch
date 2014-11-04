@@ -135,8 +135,8 @@
             document.getElementById("left_"+i).checked = true;
             document.getElementById("right_"+i).checked = false;
         } else  {
-            document.getElementById("right_"+i).checked = true;
             document.getElementById("left_"+i).checked = false;
+            document.getElementById("right_"+i).checked = true;
         }
     }
 </script>
