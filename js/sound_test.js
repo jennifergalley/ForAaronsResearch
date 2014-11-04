@@ -56,8 +56,10 @@
         hide (b+"."+i); //hide elem
         var pause = document.getElementById("pause");
         if (pause.offsetParent !== null && keycode == 13) {
-            increment ("block", (+b));
             setCookie ("elem", 1, 1);
+            i = geti();
+            alert (i);
+            increment ("block", (+b));
             hide ("pause");
         } else {
             setCookie("response."+b+"."+i, keycode, 1); //save response
