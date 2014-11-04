@@ -126,6 +126,7 @@
 
 <script type="text/javascript">
     function selectNone (i) {
+        alert ("none_"+i);
         var value = document.getElementById("select_"+i).value;
         if (value != "") {
             document.getElementById("none_"+i).checked = true;

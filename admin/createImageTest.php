@@ -43,6 +43,7 @@
         $test["Right Answers"] = $correct;
         $json[$_SESSION['version']] = $test;
         encodeJSON ($imageTests, $json);
+        $error = "Test Created!";
         $count++; 
     }
     
@@ -61,7 +62,7 @@
                 <td><input required type="number" name="version" value="<?php echo $count+1; ?>"></td>
             </tr>
             <tr>
-                <td><label for="questions">Number of blocks:</label></td>
+                <td><label for="blocks">Number of blocks:</label></td>
                 <td><input required type="number" name="blocks"></td>
             </tr>
             <tr>
