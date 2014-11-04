@@ -85,16 +85,11 @@
                 <td><label for="<?php echo 'image_'.$k.'_'.$i; ?>">Image:</label></td>
             </tr>
             <tr>
-                <?php $j = 0;
-                if ($handle = opendir('gs://aarons-tests/images/')) {
-                    while (false !== ($entry = readdir($handle))) : 
-                        $j++;
-                        $pic = $imageURL.$entry; ?>
+                <?php $arr = array("left.png", "right.png");
+                    foreach ($arr as $p) : 
+                        $pic = $imageURL.$p; ?>
                 <td><input required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>" onchange="selectImg(<?php echo "'".$k.'_'.$i."'"; ?>)"><img class="form_img" src="<?php echo $pic; ?>"></td>
-                <?php if ($j % 6 == 0) echo "</tr><tr>"; 
-                    endwhile;
-                    closedir($handle);
-                } ?>
+                <?php endforeach; ?>
             <tr>
             <tr>
                 <!-- Tone -->
