@@ -90,7 +90,7 @@
                         while (false !== ($entry = readdir($handle))) : 
                             $j++;
                             $pic = $imageURL.$entry; ?>
-                    <td><input required type="radio" name="<?php echo 'first_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                    <td><label><input required type="radio" name="<?php echo 'first_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></label></td>
                     <?php if ($j % 6 == 0) echo "</tr><tr>"; 
                         endwhile;
                         closedir($handle);
