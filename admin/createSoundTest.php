@@ -111,7 +111,7 @@
                 <td><label for="correct_<?php echo $k.'_'.$i; ?>">Correct Answer:</label></td>
                 <td><input required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="left">Left</input></td>
                 <td><input required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="right">Right</input></td>
-                <td><input id="none_<?php echo $k.'_'.$i; ?>" required type="radio" name="correct<?php echo $i; ?>" value="no response">None</input></td>
+                <td><input id="none_<?php echo $k.'_'.$i; ?>" required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="no response">None</input></td>
             </tr>
         </table>
         <br>
