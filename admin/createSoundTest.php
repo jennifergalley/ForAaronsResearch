@@ -88,7 +88,7 @@
                 <?php $arr = array("left.png", "right.png");
                     foreach ($arr as $p) : 
                         $pic = $imageURL.$p; ?>
-                <td><input required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $p; ?>" onchange="selectImg(<?php echo "'".$k.'_'.$i."'"; ?>)"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                <td><input id="<?php echo 'image_'.$k.'_'.$i; ?>" required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $p; ?>" onchange="selectImg(<?php echo "'".$k.'_'.$i."'"; ?>)"><img class="form_img" src="<?php echo $pic; ?>"></td>
                 <?php endforeach; ?>
             <tr>
             <tr>
