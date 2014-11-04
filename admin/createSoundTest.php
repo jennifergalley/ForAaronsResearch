@@ -88,7 +88,7 @@
                 <?php $arr = array("left.png", "right.png");
                     foreach ($arr as $p) : 
                         $pic = $imageURL.$p; ?>
-                <td><input id="<?php echo 'image_'.$k.'_'.$i; ?>" required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $p; ?>" onchange="selectImg(<?php echo "'".$k.'_'.$i."'"; ?>)"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                <td><input id="<?php echo $p == "left.png" ? 'left' : 'right'; echo '_'.$k.'_'.$i; ?>" required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $p; ?>" onchange="selectImg(<?php echo "'".$k.'_'.$i."'"; ?>)"><img class="form_img" src="<?php echo $pic; ?>"></td>
                 <?php endforeach; ?>
             <tr>
             <tr>
@@ -130,11 +130,12 @@
     }
     
     function selectImg (i) {
-        var value = document.getElementById("image_"+i).value;
-        if (value == "left.png") {
+        var left = document.getElementById("left_"+i).checked;
+        var right = document.getElementById("right_"+i).checked;
+        if (left) {
             document.getElementById("left_"+i).checked = true;
             document.getElementById("right_"+i).checked = false;
-        } else  {
+        } else if (right) {
             document.getElementById("left_"+i).checked = false;
             document.getElementById("right_"+i).checked = true;
         }
