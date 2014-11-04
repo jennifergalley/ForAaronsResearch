@@ -79,8 +79,8 @@
                     return;
                 }
             }
+            increment ("elem", (+i)); //increment i
         }
-        increment ("elem", (+i)); //increment i
         pauseBtwn ();
     }
     
