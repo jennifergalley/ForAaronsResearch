@@ -133,8 +133,10 @@
         var value = document.getElementById("image_"+i).value;
         if (value == "left.png") {
             document.getElementById("left_"+i).checked = true;
-        } else  {
             document.getElementById("right_"+i).checked = false;
+        } else  {
+            document.getElementById("right_"+i).checked = true;
+            document.getElementById("left_"+i).checked = false;
         }
     }
 </script>
