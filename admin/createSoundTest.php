@@ -90,7 +90,7 @@
                     while (false !== ($entry = readdir($handle))) : 
                         $j++;
                         $pic = $imageURL.$entry; ?>
-                <td><input required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>"><img class="form_img" src="<?php echo $pic; ?>"></td>
+                <td><input required type="radio" name="<?php echo 'image_'.$k.'_'.$i; ?>" value="<?php echo $entry; ?>" onchange="selectImg(<?php echo "'".$k.'_'.$i."'"; ?>)"><img class="form_img" src="<?php echo $pic; ?>"></td>
                 <?php if ($j % 6 == 0) echo "</tr><tr>"; 
                     endwhile;
                     closedir($handle);
@@ -109,8 +109,8 @@
             <tr>
                 <!-- Correct Answer -->
                 <td><label for="correct_<?php echo $k.'_'.$i; ?>">Correct Answer:</label></td>
-                <td><input required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="left">Left</input></td>
-                <td><input required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="right">Right</input></td>
+                <td><input id="left_<?php echo $k.'_'.$i; ?>" required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="left">Left</input></td>
+                <td><input id="right_<?php echo $k.'_'.$i; ?>" required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="right">Right</input></td>
                 <td><input id="none_<?php echo $k.'_'.$i; ?>" required type="radio" name="correct_<?php echo $k.'_'.$i; ?>" value="no response">None</input></td>
             </tr>
         </table>
@@ -131,6 +131,15 @@
             document.getElementById("none_"+i).checked = true;
         } else  {
             document.getElementById("none_"+i).checked = false;
+        }
+    }
+    
+    function selectImg (i) {
+        var value = document.getElementById("image_"+i).value;
+        if (value == "left.png") {
+            document.getElementById("left_"+i).checked = true;
+        } else  {
+            document.getElementById("right_"+i).checked = false;
         }
     }
 </script>
