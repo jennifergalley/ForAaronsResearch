@@ -77,7 +77,8 @@
         </tr>
     <?php 
         $i = 1;
-        foreach ($tests[$r["test version"]]["Block"] as $b => $block) :
+        $index = intval($r["test version"]);
+        foreach ($tests[$index]["Block"] as $b => $block) :
             $num = count($block);
             for ($j = 1; $j <= $num; $j++) : 
                 $question = $r["Questions"][$i]; ?>
