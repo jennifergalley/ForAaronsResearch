@@ -73,7 +73,7 @@
             <td><?php echo $n; ?></td>
             <td><?php echo $question["first"]; ?></td>
             <td><?php echo $question["second"]; ?></td>
-            <td><?php echo $t["Right Answers"][$num] == "yes" ? "True" : "False"; ?></td>
+            <td><?php echo $t["Right Answers"][$n] == "yes" ? "True" : "False"; ?></td>
         </tr>
         <?php endforeach; ?>
         <?php endforeach; ?>
