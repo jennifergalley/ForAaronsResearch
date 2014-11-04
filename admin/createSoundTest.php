@@ -130,12 +130,11 @@
     }
     
     function selectImg (i) {
-        var left = document.getElementById("left_"+i).checked;
-        var right = document.getElementById("right_"+i).checked;
-        if (left) {
+        var left = document.getElementById("left_"+i);
+        if (left.checked) {
             document.getElementById("left_"+i).checked = true;
             document.getElementById("right_"+i).checked = false;
-        } else if (right) {
+        } else {
             document.getElementById("left_"+i).checked = false;
             document.getElementById("right_"+i).checked = true;
         }
