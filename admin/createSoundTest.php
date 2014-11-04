@@ -99,7 +99,7 @@
             <tr>
                 <!-- Tone -->
                 <td><label for="tone[]">Tone Delay in ms:</label></td>
-                <td><select id="select_<?php echo $k.'_'.$i; ?>" name="tone[]" onchange="selectNone(<?php echo $k.'_'.$i; ?>)">
+                <td><select id="select_<?php echo $k.'_'.$i; ?>" name="tone[]" onchange="selectNone(<?php echo "'".$k.'_'.$i."'"; ?>)">
                     <option value="">No Tone</option>
                     <option value="125">125ms</option>
                     <option value="200">200ms</option>
