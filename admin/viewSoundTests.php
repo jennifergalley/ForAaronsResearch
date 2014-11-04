@@ -70,9 +70,10 @@
             foreach ($trials as $n =>$question) : ?>
         <tr>
             <td><?php echo $num; ?></td>
+            <td><?php echo $n; ?></td>
             <td><?php echo $question["image"]; ?></td>
             <td><?php echo !empty($question["tone"]) ? $question["tone"]."ms" : "None"; ?></td>
-            <td><?php echo ucwords($t["Right Answers"][$num]); ?></td>
+            <td><?php echo ucwords($t["Right Answers"][$n]); ?></td>
         </tr>
         <?php endforeach; ?>
         <?php endforeach; ?>
