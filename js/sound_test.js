@@ -8,7 +8,7 @@
         setTimeout(function() {
             var i = geti (); //get i
             var b = getBlock();
-            alert (b);
+            alert (b+"."+i);
             show (b+"."+i); //show
             start = +new Date ();
             allowResponses (); //only allow response on response page
